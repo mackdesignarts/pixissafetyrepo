@@ -1,0 +1,37 @@
+<div class="pocket-card" data-ng-class="{page: ($index+1)%10 == 0 || !$index}">
+    <h1 class="pocket-header text-info no-pad no-margin">{{cert.Employee.TLCompany.Company_Name}}</h1>
+    <div class="well no-pad no-margin">{{cert.Course.CourseDescription}} {{'{'+cert.Course.CourseSubDescription+'}'}}</div>
+    <div class="text-center">This is to cerify that, in accordance with {{cert.Course.CertificateDescription}}</div>
+    <br />
+    <div class="row">
+        <div class="col-xs-3">Employee:</div>
+        <div class="col-xs-9 text-center">{{cert.Employee.EmployeeFirstName}} {{cert.Employee.EmployeeLastName}}</div>
+    </div>
+    <small class="small">has met the attendance requirements and exam.</small>
+    <div class="row">
+        <div class="col-xs-12">
+            <small>
+                Course Location: {{class.LocationCode.LocationCity}}, {{class.LocationCode.LocationState}}
+            </small>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="pull-left">
+            <small>
+                Course Instructor: {{class.Instructor.InstructorName}}
+            </small>
+        </div>
+        <div class="pull-right text-right">
+            <small>Course Date: {{class.ScheduledEndDate | date: 'M/d/yyyy'}}</small>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="pull-left">
+            <small>Exam Date: {{class.ScheduledEndDate | date: 'M/d/yyyy'}}</small>
+        </div>
+
+        <div class="pull-right text-right">
+            <small>Expiration Date: {{cert.ExpireDate ? (cert.ExpireDate| date: 'M/d/yyyy') : 'Never'}}</small>
+        </div>
+    </div>
+</div>

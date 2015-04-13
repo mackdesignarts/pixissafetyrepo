@@ -1,0 +1,3 @@
+﻿# SafetyProject.Client
+
+

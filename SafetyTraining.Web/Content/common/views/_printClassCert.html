@@ -1,0 +1,42 @@
+<div class="page text-center cert">
+    <br /><br />
+    <h1 class="cert-header">{{cert.Employee.TLCompany.Company_Name}}</h1>
+    <br />
+    <p class="lead">This is to certify that, in accordance with the Occupational Safety and Health Administration and Guidelines set forth per {{cert.Course.CertificateDescription}}</p>
+    <br /> <br />
+    <h1>{{cert.Employee.EmployeeFirstName}} {{cert.Employee.EmployeeLastName}}</h1>
+    <br />
+    <p class="lead">has met the attendance requirements and exam for:</p>
+    <h1>
+        <b>{{cert.Course.CourseDescription}}</b><br />
+        <small><b>{{cert.Course.CourseSubDescription}}</b></small>
+    </h1>
+    <br /><br />
+    <div class="row">
+        <div class="col-xs-4">
+            {{class.Region.Instructor.InstructorName}}
+            <hr style="margin:0" />
+            <small>Course Director</small>
+        </div>
+        <div class="col-xs-4">
+            {{class.Instructor.InstructorName}}
+            <hr style="margin:0" />
+            <small>Course Instructor</small>
+        </div>
+        <div class="col-xs-4">
+            {{class.LocationCode.LocationCity}}, {{class.LocationCode.LocationState}}
+            <hr style="margin:0" />
+            <small>Location</small>
+        </div>
+    </div>
+    <br /><br />
+    <div class="row">
+        <div class="col-xs-4">
+            <small>Certificate #: {{cert.CoursesTakenID}}</small>
+        </div>
+        <div class="col-xs-4 col-xs-push-4">
+            <small>Completion Date: {{class.ScheduledEndDate | date: 'M/d/yyyy'}}</small><br />
+            <small>Expiration Date: {{cert.ExpireDate ? (cert.ExpireDate| date: 'M/d/yyyy') : 'Never'}}</small>
+        </div>
+    </div>
+</div>

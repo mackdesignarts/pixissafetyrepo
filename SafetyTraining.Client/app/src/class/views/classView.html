@@ -1,0 +1,65 @@
+<div class="page-header">
+    <h1>Classes
+    <div class="pull-right">
+        <button data-ui-sref="app.class.schedule" class="btn btn-primary">Schedule Class</button>
+
+        <a data-ng-href="api/Class{{odata()}}&format=csv" download="Classes.csv" target="_blank" class="btn btn-success">Export</a>
+
+    </div>
+    </h1>
+</div>
+<div class="row">
+    <div class="form-group col-md-3">
+        <div class="input-group">
+            <label>Search</label>
+            <input type="search" data-ng-model="grid.search" placeholder="Search" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group col-md-2">
+        <div class="input-group">
+            <label>Instructor</label>
+            <input type="hidden" ui-select2="selects.selectInstructorConfig" data-ng-model="grid.Instructor" name="instructor" />
+        </div>
+    </div>
+    <div class="col-md-2 form-group">
+        <label>Scheduled Start Date</label>
+        <input type="text" datepicker-popup="MM/dd/yyyy" data-ng-model="grid.ScheduledStartDate" name="scheduledStartDate" id="scheduleStDate" class="form-control" />
+    </div>
+
+    <div class="col-md-2 form-group">
+        <label>Scheduled End Date</label>
+        <input type="text" datepicker-popup="MM/dd/yyyy" data-ng-model="grid.ScheduledEndDate" name="scheduledEndDate" class="form-control" id="scheduleEndDate" />
+    </div>
+    <div class="col-md-2 form-group">
+        <label>Completed</label>
+        <select data-ng-model="grid.Completed" name="courseCompleted" class="form-control">
+            <option ng-repeat="o in expOptions" value="{{o.val}}">{{ o.name }}</option>
+        </select>
+    </div>
+</div>
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Class Name</th>
+            <th>Scheduled Start Date</th>
+            <th>Scheduled End Date</th>
+            <th>Instructor</th>
+            <th>Attendees</th>
+            <th>Completed</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="class in classes.data" data-ui-sref="app.class.detail({id: class.ClassID})">
+            <td>{{class.ClassName}}</td>
+            <td>{{class.ScheduledStartDate  | date : "shortDate"}}</td>
+            <td>{{class.ScheduledEndDate | date : "shortDate"}}</td>
+            <td>{{class.Instructor.InstructorName}}</td>
+            <td>{{class.ClassAttendees.length}}</td>
+            <td>{{class.Completed}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<pagination data-total-items="classes.total" data-items-per-page="grid.ipp" data-page="grid.page" data-max-size="5" data-boundary-links="true" class="pagination-sm"></pagination>

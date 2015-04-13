@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3dabd0fb722b4a65934d92185c01f3c2" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.CertificationAgency" Width="1.5" PointX="0.75" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.CertificationStatu" Width="1.5" PointX="3.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.Checklist" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.ClassAttendee" Width="1.5" PointX="11.25" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.Class" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.ClassSession" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.ClassSignInSheet" Width="1.5" PointX="5.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.Course" Width="1.5" PointX="3" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.CoursesTaken" Width="1.5" PointX="14.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.CoursesTakenHistory" Width="1.5" PointX="16.5" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.CrewDetail" Width="1.5" PointX="8.25" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.Crew" Width="1.5" PointX="6" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.CrewStatu" Width="1.5" PointX="3.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.Employee" Width="1.5" PointX="9" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.EmployeeHistory" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.EmployeeMedical" Width="1.5" PointX="11.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.EmployeeMedicalRequired" Width="1.5" PointX="14.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.EmployeeNote" Width="1.5" PointX="11.25" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.EmployeeNotesHistory" Width="1.5" PointX="11.25" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.EmployeePosition" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.EmployeeStatu" Width="1.5" PointX="6.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.Instructor" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.JobCertification" Width="1.5" PointX="3.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.Job" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.LocationCode" Width="1.5" PointX="0.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.MedicalTest" Width="1.5" PointX="12" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.Region" Width="1.5" PointX="1.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.TLCompany" Width="1.5" PointX="6.75" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.UserAccess" Width="1.5" PointX="6" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.UserAccessFlag" Width="1.5" PointX="3.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.UserCompany" Width="1.5" PointX="9" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.User" Width="1.5" PointX="1.5" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.dbo_CTL_TS__COMPANY_INFORMATION_BAD" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.dbo_JCM_MASTER__JOB_BAD" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.dbo_PRM_MASTER__EMPLOYEE1" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.JCM_MASTER__JOB" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.PRM_MASTER__EMPLOYEE" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.tblCourseBAD" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.tblEmployeeCourseBAD" Width="1.5" PointX="14.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.tblInstructorBAD" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.tblLocationBAD" Width="1.5" PointX="13.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.vCoursesTaken" Width="1.5" PointX="15.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.vCoursesTakenOLD" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.vEmployee" Width="1.5" PointX="24.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.vEmployeeOccupation" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.vGetEmployee" Width="1.5" PointX="24.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AWFSafetyFakeModel.vGetEmployee1" Width="1.5" PointX="24.75" PointY="19.75" IsExpanded="true" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_Course_CertificationAgency" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_ClassAttendees_Classes" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_ClassAttendees_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_ClassDetail_Classes" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_Classes_Instructor" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_Classes_LocationCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_Classes_Region" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_ClassSignInSheet_Classes" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_CoursesTaken_Classes" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_CoursesTakenHistory_Classes" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_ClassDetail_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_CoursesTaken_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_CoursesTakenHistory_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_CoursesTaken_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_CoursesTaken_Instructor" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_CoursesTakenHistory_CoursesTaken" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_CoursesTakenHistory_Instructor" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_CrewDetail_Crews" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_Crews_CrewStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_Crews_LocationCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_Crews_Region" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK__Employee__DBID__793DFFAF" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK__EmployeeN__Emplo__078C1F06" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK__EmployeeNotesHistory_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_Employee_EmployeeStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_Employee_LocationCode" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_EmployeeMedical_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_EmployeeMedicalRequired_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_EmployeeNotesHistory_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_EmployeeMedical_MedicalTest" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_EmployeeMedicalRequired_MedicalTest" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_Instructor_Region" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_Region_Instructor" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_Region_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_Users_Region" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_UserCompany_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_UserAccess_UserAccessFlags" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_UserAccess_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="AWFSafetyFakeModel.FK_UserCompany_Company" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

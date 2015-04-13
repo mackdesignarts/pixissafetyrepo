@@ -1,0 +1,109 @@
+<h1>Class Details</h1>
+
+<div class="row">
+    <div class="col-md-12 form-group">
+        <label>Class Name</label>
+        <div data-ng-bind="class.ClassName" class="form-control-static"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-9 form-group">
+            <label>Employee(s)</label>
+            <div class="form-control-static">
+                <span data-ng-repeat="employee in class.ClassAttendees track by $index">
+                    <a data-ui-sref="app.employee.detail({id: employee.EmployeeID})">{{employee.Employee.EmployeeFirstName}} {{employee.Employee.EmployeeLastName}}</a><span data-ng-if="!$last">, </span>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3 form-group">
+            <label>Instructor</label>
+            <div data-ng-bind="class.Instructor.InstructorName" class="form-control-static"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 form-group">
+            <label>Scheduled Start Date</label>
+            <div data-ng-bind="class.ScheduledStartDate | date: 'M/d/yyyy'" class="form-control-static"></div>
+        </div>
+        <div class="col-md-3 form-group">
+            <label>Scheduled Start Time</label>
+            <div data-ng-bind="class.ScheduledStartTime | date: 'shortTime'" class="form-control-static"></div>
+        </div>
+
+        <div class="col-md-3 form-group">
+            <label>Scheduled End Date</label>
+            <div data-ng-bind="class.ScheduledEndDate | date: 'M/d/yyyy'" class="form-control-static"></div>
+        </div>
+        <div class="col-md-3 form-group">
+            <label>Scheduled End Time</label>
+            <div data-ng-bind="class.ScheduledEndTime | date: 'shortTime'" class="form-control-static"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label>Region</label>
+            <div data-ng-bind="class.Region.Region1" class="form-control-static"></div>
+        </div>
+        <div class="col-md-6 form-group">
+            <label>Location Code</label>
+            <div data-ng-bind="class.LocationCode.LocationName" class="form-control-static"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2>Sessions</h2>
+
+
+
+        <h3>Course</h3>
+
+        <div data-ng-repeat="session in class.ClassSessions">
+            <div class="row">
+
+
+                <div class="col-md-6 form-group">
+                    {{session.Course.CourseDescription}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h3>Location</h3>
+        <div class="col-md-4 form-group">
+            <label>Street Address</label>
+            <div data-ng-bind="class.StreetAddress1" class="form-control-static"></div>
+        </div>
+        <div class="col-md-2 form-group">
+            <label>Suite/Room/Floor</label>
+            <div data-ng-bind="class.StreetAddress2" class="form-control-static"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <label>City</label>
+            <div data-ng-bind="class.City" class="form-control-static"></div>
+        </div>
+        <div class="col-md-1 form-group">
+            <label>State</label>
+            <div data-ng-bind="class.State" class="form-control-static"></div>
+        </div>
+        <div class="col-md-1 form-group">
+            <label>Zip</label>
+            <div data-ng-bind="class.Zip" class="form-control-static"></div>
+        </div>
+    </div>
+
+    <div class="clearfix">
+        <div class="col-md-6 col-md-offset-6">
+            <p class="text-right">
+                <a href="" class="btn btn-primary" data-print-div="#sign-in-sheet">Print Sign-in Sheet</a>
+                <a href="" class="btn btn-primary" data-print-div="#certificates">Print Certifications</a>
+            </p>
+        </div>
+    </div>
+</div>
+<div id="sign-in-sheet" data-ng-include="'templates/_printClassSignIn.html'" style="display:none;"></div>
+<div id="certificates" style="display:none;">
+    <div data-ng-repeat="employee in class.ClassAttendees track by $index">
+        <div data-ng-include="'templates/_printClassCert.html'" data-ng-repeat="course in class.ClassSessions track by $index"></div>
+    </div>
+</div>

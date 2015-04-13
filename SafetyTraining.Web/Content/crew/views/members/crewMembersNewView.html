@@ -1,0 +1,20 @@
+<form name="addEmpoyees" data-ng-submit="addMember(add, addEmpoyees)" data-ng-init="add = {}" novalidate="novalidate">
+    <div class="well">
+        <h3>Add member to crew</h3>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>Select employee</label>
+                <input type="hidden" ui-select2="selects.selectEmployeesConfig" data-ng-model="add.Employees" name="employee" required="required" />
+            </div>
+            
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="col-md-6 col-md-offset-6">
+            <p class="text-right">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a data-ng-click="cancel()" class="btn btn-default">Cancel</a>
+            </p>
+        </div>
+    </div>
+</form>

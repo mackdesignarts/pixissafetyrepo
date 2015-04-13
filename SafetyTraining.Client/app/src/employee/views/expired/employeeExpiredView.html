@@ -1,0 +1,129 @@
+<div class="page-header">
+    <h1>Employees certifications
+    <div class="pull-right">
+        <button data-ui-sref="app.employee.index.new" class="btn btn-primary">Add Employee</button>
+        <a data-ng-href="api/CoursesTakenSearch?format=csv&sort={{grid.orderBy}}&expired=Yes&DBID={{($root.CompanyId && $root.CompanyId.id || $root.CompanyId || '')}}&firstname={{grid.FirstName}}&lastname={{grid.LastName}}&coursedesc={{grid.CourseDesc}}" download="Employees.csv" class="btn btn-success">Export</a>
+    </div>
+    </h1>
+</div>
+<div class="row">
+    <div class="form-group col-md-2">
+        <label>First Name</label>
+        <input type="search" data-ng-model="grid.FirstName" placeholder="First Name" class="form-control" />
+    </div>
+    <div class="form-group col-md-2">
+        <div class="input-group">
+            <label>Last Name</label>
+            <input type="search" data-ng-model="grid.LastName" placeholder="Last Name" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group col-md-2">
+        <div class="input-group">
+            <label>Course Decription</label>
+            <input type="search" data-ng-model="grid.CourseDesc" placeholder="Course Decription" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group col-md-2">
+        <div class="input-group">
+            <label>TL Employee</label>
+            <input type="search" data-ng-model="grid.TLEmployee" placeholder="TL Employee" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group col-md-2">
+        <div class="input-group">
+            <label>Location</label>
+            <input type="search" data-ng-model="grid.Location" placeholder="Location" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group col-md-2">
+        <div class="input-group">
+            <label>Status</label>
+            <input type="hidden" ui-select2="selects.selectEmployeeStatusIDConfig" data-ng-model="grid.EmployeeStatusID" name="employeeStatus" />
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-md-4">
+        <div class="input-group">
+            <label>Expired</label>
+            <select data-ng-model="grid.Expired" name="employeeExpired" class="form-control">
+                <option ng-repeat="o in expOptions" value="{{o.val}}">{{ o.name }}</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!--<div class="row row-table">
+  <div class="row table-header">
+    <div data-ng-click="grid.orderBy = ['EmployeeLastName', 'EmployeeFirstName']; grid.reverse = !grid.reverse" class="col-xs-2">Employee</div>
+    <div data-ng-click="grid.orderBy = 'DBID'; grid.reverse = !grid.reverse" class="col-xs-2">Employer</div>
+    <div data-ng-click="grid.orderBy = 'TLEmployee'; grid.reverse = !grid.reverse" class="col-xs-2">Location</div>
+    <div data-ng-click="grid.orderBy = 'Department'; grid.reverse = !grid.reverse" class="col-xs-2">Department</div>
+    <div data-ng-click="grid.orderBy = 'Occupation'; grid.reverse = !grid.reverse" class="col-xs-2">Occupation</div>
+    <div data-ng-click="grid.orderBy = 'HireDate'; grid.reverse = !grid.reverse" class="col-xs-2">Hire Date</div>
+  </div>
+  <div data-ng-repeat="employee in employees.data" class="row table-row">
+    <div data-ng-click="employee.showCerts  = !employee.showCerts" class="col-xs-2">{{employee.EmployeeFirstName}} {{employee.EmployeeLastName}}</div>
+    <div data-ng-click="employee.showCerts  = !employee.showCerts" class="col-xs-2">{{employee.dbo_CTL_TS__COMPANY_INFORMATION.Company_Name}}</div>
+    <div data-ng-click="employee.showCerts  = !employee.showCerts" class="col-xs-2">{{employee.dbo_CTL_TS__COMPANY_INFORMATION.Company_City}} {{employee.dbo_CTL_TS__COMPANY_INFORMATION.Company_State}}</div>
+    <div data-ng-click="employee.showCerts  = !employee.showCerts" class="col-xs-2">{{employee.Department}}</div>
+    <div data-ng-click="employee.showCerts  = !employee.showCerts" class="col-xs-2">{{employee.Occupation}}</div>
+    <div data-ng-click="employee.showCerts  = !employee.showCerts" class="col-xs-2">{{employee.HireDate | date: 'MM/dd/yyyy'}}</div>
+    <div data-ng-if="employee.showCerts" class="row row-table">
+      <div class="row table-header">
+        <div class="col-xs-2">Course</div>
+        <div class="col-xs-2">Agency</div>
+        <div class="col-xs-2">Certified On</div>
+        <div class="col-xs-2">Exipired On</div>
+        <div class="col-sx-2">Required</div>
+        <div class="col-sx-2">Schedule Renewal</div>
+      </div>
+        <div data-ng-repeat="course in emplyee.CoursesTakens" data-ng-init="course = CourseService.getCourseById(taken.CourseId)" data-ng-init="getCourse(course)" class="row table-row">
+            <div class="col-xs-2">{{course.CourseDescription}}</div>
+            <div class="col-xs-2">{{course.CertAgnecy}}</div>
+            <div class="col-xs-2">{{taken.CerificationDate | date: 'MM/dd/yyyy'}}</div>
+            <div title="{{expires(course,true) | date: 'MM/dd/yyyy'}}">{{expires(course) | date: 'MM/dd/yyyy'}}</div>
+            <div class="col-sx-2">{{taken.Required}}</div>
+            <div class="col-sx-2 actions"><a href="">Schedule Renewal</a></div>
+        </div>
+    </div>
+  </div>
+</div>-->
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th data-ng-click="grid.orderBy = ['EmployeeLastName', 'EmployeeFirstName']; grid.reverse = !grid.reverse">Employee</th>
+            <th data-ng-click="grid.orderBy = 'TLEmployee'; grid.reverse = !grid.reverse">TL Employee</th>
+            <th data-ng-click="grid.orderBy = 'CourseDescription'; grid.reverse = !grid.reverse">Course Description</th>
+            <th data-ng-click="grid.orderBy = 'LocationCode'; grid.reverse = !grid.reverse">Location Code</th>
+            <th data-ng-click="grid.orderBy = 'Location'; grid.reverse = !grid.reverse">Location</th>
+            <th data-ng-click="grid.orderBy = 'CertificationDate'; grid.reverse = !grid.reverse">Certification Date</th>
+            <th data-ng-click="grid.orderBy = 'RenewalPeriodMonths'; grid.reverse = !grid.reverse">Renewal Period</th>
+            <th data-ng-click="grid.orderBy = 'ExpireDate'; grid.reverse = !grid.reverse">Expire Date</th>
+            <th data-ng-click="grid.orderBy = 'ExpireInDays'; grid.reverse = !grid.reverse">Days Overdue</th>
+            <th data-ng-click="grid.orderBy = 'EmployeeStatus'; grid.reverse = !grid.reverse">Employee Status</th>
+            <th data-ng-click="grid.orderBy = 'Expired'; grid.reverse = !grid.reverse">Expired</th>
+            <!--<th>Quick Manage</th>-->
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="employee in expiredCerts.data">
+            <td data-ui-sref="app.employee.detail({id: employee.EmployeeID})">{{employee.EmployeeLastName}}, {{employee.EmployeeFirstName}}</td>
+            <td data-ui-sref="app.employee.detail({id: employee.EmployeeID})">{{employee.TLEmployee}}</td>
+            <td data-ui-sref="app.employee.detail({id: employee.EmployeeID})">{{employee.CourseDescription}}</td>
+            <td data-ui-sref="app.employee.detail({id: employee.EmployeeID})">{{employee.LocationCode}}</td>
+            <td data-ui-sref="app.employee.detail({id: employee.EmployeeID})">{{employee.Location}}</td>
+            <td data-ui-sref="app.employee.detail({id: employee.EmployeeID})">{{employee.CertificationDate | date: 'MM/dd/yyyy'}}</td>
+            <td data-ui-sref="app.employee.detail({id: employee.EmployeeID})">{{employee.RenewalPeriodMonths}} Months</td>
+            <td data-ui-sref="app.employee.detail({id: employee.EmployeeID})">{{employee.ExpireDate | date: 'MM/dd/yyyy'}}</td>
+            <td data-ui-sref="app.employee.detail({id: employee.EmployeeID})">{{employee.ExpireInDays}}</td>
+            <td data-ui-sref="app.employee.detail({id: employee.EmployeeID})">{{employee.EmployeeStatus}}</td>
+            <td data-ui-sref="app.employee.detail({id: employee.EmployeeID})">{{employee.Expired}}</td>
+            <!--<td><a>Schedule Course</a></td>-->
+        </tr>
+    </tbody>
+</table>
+
+<pagination data-total-items="expiredCerts.total" data-items-per-page="grid.ipp" data-page="grid.page" data-max-size="5" data-boundary-links="true" class="pagination-sm"></pagination>

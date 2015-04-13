@@ -1,0 +1,77 @@
+
+<div class="page-header">
+  <h1>User <small> - {{user.UserName}}: {{user.Email}}</small></h1>
+</div>
+<tabset id="tabs" data-ng-init="tab = []">
+    <tab heading="Edit" active="tab[0]" data-ng-click="edit = {}; copy(user,edit); edit.Password=''" >
+        <br />
+        <form name="userEditForm" data-ng-submit="saveEdit(edit, userEditForm)" data-ng-init="" novalidate="novalidate" class="well">
+            <div class="row">
+                <div class="col-md-3 form-group">
+                    <label>UserName</label>
+                    <input type="text" data-ng-model="edit.UserName" name="username" class="form-control" required />
+                </div>
+                <div class="col-md-3 form-group">
+                    <label>Email Address</label>
+                    <input type="text" data-ng-model="edit.Email" name="email" class="form-control" required />
+                </div>
+                <div class="col-md-3 form-group">
+                    <label>New Password</label>
+                    <input type="password" data-ng-model="edit.Password" name="password" class="form-control" />
+                </div>
+                <div class="col-md-3 form-group">
+                    <label>Confirm New Password</label>
+                    <input type="password" data-ng-model="edit.ConfirmPassword" name="confirmPassword" class="form-control" data-match="edit.Password" />
+                </div>
+                 <div class="col-md-3 form-group">
+                    <label>Region</label>
+                     <input type="hidden" ui-select2="selects.selectRegionsConfig" data-ng-model="edit.RegionID" name="region" required="required" />
+                    
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-3 col-md-offset-9 text-right">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <button type="submit" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </tab>
+  <tab heading="Companies" active="tab[1]"><br/>
+    <div class="well">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Company Name </th>
+            <th>Has Access?</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="company in companies.data">
+                <td>{{company.Company_Name}}</td>
+                <td><input type="checkbox" name="{{comapny.DBID}}" data-ng-model="userCompanies[company.DBID].selected" data-ng-init="userCompanies[company.DBID] = userCompanies[company.DBID] || {}" data-ng-change="toggleUserCompany(userCompanies[company.DBID], company)" /></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </tab>
+    <tab heading="Access" active="tab[2]">
+        <br />
+        <div class="well">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Access Flag </th>
+                        <th>Has Flag?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="flag in accessFlag.data">
+                        <td>{{flag.Flag}}</td>
+                        <td><input type="checkbox" name="{{flag.Flag}}" data-ng-model="userFlags[flag.FlagID].selected" data-ng-init="userFlags[flag.FlagID] = userFlags[flag.FlagID] || {}" data-ng-change="toggleUserFlag(userFlags[flag.FlagID], flag)" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </tab>
+</tabset>

@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>SafetyTraining.Client</Name>
+    <RootNamespace>SafetyTraining.Client</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>e43136d1-a47b-4e03-b1a8-7d314d6ffb20</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>server.js</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <NodejsPort>1337</NodejsPort>
+    <StartWebBrowser>true</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app\src\admin\app.js" />
+    <Compile Include="app\src\admin\controllers\indexCtrl.js" />
+    <Compile Include="app\src\admin\controllers\region\editCtrl.js" />
+    <Compile Include="app\src\admin\controllers\region\indexCtrl.js" />
+    <Compile Include="app\src\admin\controllers\user\companies\editCtrl.js" />
+    <Compile Include="app\src\admin\controllers\user\editCtrl.js" />
+    <Compile Include="app\src\admin\controllers\user\indexCtrl.js" />
+    <Compile Include="app\src\admin\controllers\user\newCtrl.js" />
+    <Compile Include="app\src\app.js" />
+    <Compile Include="app\src\auth\app.js" />
+    <Compile Include="app\src\auth\controllers\authCtrl.js" />
+    <Compile Include="app\src\auth\services\loginFactory.js" />
+    <Compile Include="app\src\checklist\app.js" />
+    <Compile Include="app\src\checklist\controllers\indexCtrl.js" />
+    <Compile Include="app\src\checklist\controllers\process\indexCtrl.js" />
+    <Compile Include="app\src\class\app.js" />
+    <Compile Include="app\src\class\controllers\calendar\calendarCtrl.js" />
+    <Compile Include="app\src\class\controllers\calendar\indexCtrl.js" />
+    <Compile Include="app\src\class\controllers\detail\attendee\editCtrl.js" />
+    <Compile Include="app\src\class\controllers\detail\attendee\newCtrl.js" />
+    <Compile Include="app\src\class\controllers\detail\detailCtrl.js" />
+    <Compile Include="app\src\class\controllers\detail\session\editCtrl.js" />
+    <Compile Include="app\src\class\controllers\detail\session\newCtrl.js" />
+    <Compile Include="app\src\class\controllers\indexCtrl.js" />
+    <Compile Include="app\src\class\controllers\schedule\indexCtrl.js" />
+    <Compile Include="app\src\class\controllers\showCtrl.js" />
+    <Compile Include="app\src\class\services\classesFactory.js" />
+    <Compile Include="app\src\common\app.js" />
+    <Compile Include="app\src\common\services\apiFactory.js" />
+    <Compile Include="app\src\common\services\companiesFactory.js" />
+    <Compile Include="app\src\common\services\coursesFactory.js" />
+    <Compile Include="app\src\common\services\crewsFactory.js" />
+    <Compile Include="app\src\common\services\employeeCoursesFactory.js" />
+    <Compile Include="app\src\common\services\employeesFactory.js" />
+    <Compile Include="app\src\common\services\httpFactory.js" />
+    <Compile Include="app\src\common\services\instructorsFactory.js" />
+    <Compile Include="app\src\common\services\locationsFactory.js" />
+    <Compile Include="app\src\common\services\odataFactory.js" />
+    <Compile Include="app\src\common\services\routeResolverFactory.js" />
+    <Compile Include="app\src\common\services\tokenFactoryInterceptor.js" />
+    <Compile Include="app\src\course\app.js" />
+    <Compile Include="app\src\course\controllers\editCtrl.js" />
+    <Compile Include="app\src\course\controllers\indexCtrl.js" />
+    <Compile Include="app\src\course\controllers\newCtrl.js" />
+    <Compile Include="app\src\crew\app.js" />
+    <Compile Include="app\src\crew\controllers\detailCtrl.js" />
+    <Compile Include="app\src\crew\controllers\indexCtrl.js" />
+    <Compile Include="app\src\crew\controllers\members\newCtrl.js" />
+    <Compile Include="app\src\crew\controllers\newCtrl.js" />
+    <Compile Include="app\src\dashboard\app.js" />
+    <Compile Include="app\src\dashboard\controllers\add-certification\indexCtrl.js" />
+    <Compile Include="app\src\dashboard\controllers\add-to-course\indexCtrl.js" />
+    <Compile Include="app\src\dashboard\controllers\dashboardIndexCtrl.js" />
+    <Compile Include="app\src\employee\app.js" />
+    <Compile Include="app\src\employee\controllers\certification\editCtrl.js" />
+    <Compile Include="app\src\employee\controllers\certification\newCtrl.js" />
+    <Compile Include="app\src\employee\controllers\detailCtrl.js" />
+    <Compile Include="app\src\employee\controllers\expired\indexCtrl.js" />
+    <Compile Include="app\src\employee\controllers\expiringmeds\indexCtrl.js" />
+    <Compile Include="app\src\employee\controllers\expiring\indexCtrl.js" />
+    <Compile Include="app\src\employee\controllers\indexCtrl.js" />
+    <Compile Include="app\src\employee\controllers\medicals\editCtrl.js" />
+    <Compile Include="app\src\employee\controllers\medicals\newCtrl.js" />
+    <Compile Include="app\src\employee\controllers\newCtrl.js" />
+    <Compile Include="app\src\employee\controllers\note\editCtrl.js" />
+    <Compile Include="app\src\employee\controllers\note\newCtrl.js" />
+    <Compile Include="app\src\instructor\app.js" />
+    <Compile Include="app\src\instructor\controllers\editCtrl.js" />
+    <Compile Include="app\src\instructor\controllers\indexCtrl.js" />
+    <Compile Include="app\src\instructor\controllers\newCtrl.js" />
+    <Compile Include="gulpfile.js" />
+    <Content Include="app\assets\css\main.css" />
+    <Content Include="app\assets\css\scss\main.scss" />
+    <Content Include="app\assets\css\scss\plugins\jquery-ui.styleSelect.scss" />
+    <Content Include="app\assets\css\scss\_forms.scss" />
+    <Content Include="app\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="app\assets\img\sample.png" />
+    <Content Include="app\src\admin\views\adminView.html" />
+    <Content Include="app\src\admin\views\region\adminRegionEditView.html" />
+    <Content Include="app\src\admin\views\region\adminRegionView.html" />
+    <Content Include="app\src\admin\views\user\adminUserEditView.html" />
+    <Content Include="app\src\admin\views\user\adminUserNewView.html" />
+    <Content Include="app\src\admin\views\user\adminUserView.html" />
+    <Content Include="app\src\auth\views\authView.html" />
+    <Content Include="app\src\checklist\views\checklistView.html" />
+    <Content Include="app\src\checklist\views\process\checklistProcessView.html" />
+    <Content Include="app\src\class\views\calendar\classCalendar.html" />
+    <Content Include="app\src\class\views\calendar\classCalendarView.html" />
+    <Content Include="app\src\class\views\classShowView.html" />
+    <Content Include="app\src\class\views\classView.html" />
+    <Content Include="app\src\class\views\classXcalendarView.html" />
+    <Content Include="app\src\class\views\detail\attendee\classDetailAttendeeEditView.html" />
+    <Content Include="app\src\class\views\detail\attendee\classDetailAttendeeNewView.html" />
+    <Content Include="app\src\class\views\detail\classDetailCompleteView.html" />
+    <Content Include="app\src\class\views\detail\classDetailView.html" />
+    <Content Include="app\src\class\views\detail\session\classDetailSessionEditView.html" />
+    <Content Include="app\src\class\views\detail\session\classDetailSessionNewView.html" />
+    <Content Include="app\src\class\views\schedule\classScheduleView.html" />
+    <Content Include="app\src\common\views\_appLayout.html" />
+    <Content Include="app\src\common\views\_printClassCert.html" />
+    <Content Include="app\src\common\views\_printClassSignIn.html" />
+    <Content Include="app\src\common\views\_printPocketCards.html" />
+    <Content Include="app\src\course\views\courseEditView.html" />
+    <Content Include="app\src\course\views\courseNewView.html" />
+    <Content Include="app\src\course\views\courseView.html" />
+    <Content Include="app\src\crew\views\add-to-crew\crewAddToCrewView.html" />
+    <Content Include="app\src\crew\views\crewDetailView.html" />
+    <Content Include="app\src\crew\views\crewNewView.html" />
+    <Content Include="app\src\crew\views\crewView.html" />
+    <Content Include="app\src\crew\views\members\crewMembersNewView.html" />
+    <Content Include="app\src\dashboard\views\add-certification\dashboardAddCertificationView.html" />
+    <Content Include="app\src\dashboard\views\add-to-course\dashboardAddToCourseView.html" />
+    <Content Include="app\src\dashboard\views\dashboardView.html" />
+    <Content Include="app\src\employee\views\certification\employeeCertificationEditView.html" />
+    <Content Include="app\src\employee\views\certification\employeeCertificationNewView.html" />
+    <Content Include="app\src\employee\views\employeeDetailView.html" />
+    <Content Include="app\src\employee\views\employeeNewView.html" />
+    <Content Include="app\src\employee\views\employeePrintView.html" />
+    <Content Include="app\src\employee\views\employeeView.html" />
+    <Content Include="app\src\employee\views\expired\employeeExpiredView.html" />
+    <Content Include="app\src\employee\views\expiringmeds\employeeExpiringMedsView.html" />
+    <Content Include="app\src\employee\views\expiring\employeeExpiringView.html" />
+    <Content Include="app\src\employee\views\medicals\employeeMedicalEditView.html" />
+    <Content Include="app\src\employee\views\medicals\employeeMedicalsNewView.html" />
+    <Content Include="app\src\employee\views\note\employeeNoteEditView.html" />
+    <Content Include="app\src\employee\views\note\employeeNoteNewView.html" />
+    <Content Include="app\src\index.html" />
+    <Content Include="app\src\instructor\views\instructorEditView.html" />
+    <Content Include="app\src\instructor\views\instructorNewView.html" />
+    <Content Include="app\src\instructor\views\instructorView.html" />
+    <Content Include="bower.json" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="app\assets\" />
+    <Folder Include="app\assets\css\" />
+    <Folder Include="app\assets\css\scss\" />
+    <Folder Include="app\assets\css\scss\plugins\" />
+    <Folder Include="app\assets\fonts\" />
+    <Folder Include="app\assets\img\" />
+    <Folder Include="app\src\" />
+    <Folder Include="app\src\admin\" />
+    <Folder Include="app\src\admin\controllers\" />
+    <Folder Include="app\src\admin\controllers\region\" />
+    <Folder Include="app\src\admin\controllers\user\" />
+    <Folder Include="app\src\admin\controllers\user\companies\" />
+    <Folder Include="app\src\admin\views\" />
+    <Folder Include="app\src\admin\views\region\" />
+    <Folder Include="app\src\admin\views\user\" />
+    <Folder Include="app\src\auth\" />
+    <Folder Include="app\src\auth\controllers\" />
+    <Folder Include="app\src\auth\services\" />
+    <Folder Include="app\src\auth\views\" />
+    <Folder Include="app\src\checklist\" />
+    <Folder Include="app\src\checklist\controllers\" />
+    <Folder Include="app\src\checklist\controllers\process\" />
+    <Folder Include="app\src\checklist\views\" />
+    <Folder Include="app\src\checklist\views\process\" />
+    <Folder Include="app\src\class\" />
+    <Folder Include="app\src\class\controllers\" />
+    <Folder Include="app\src\class\controllers\calendar\" />
+    <Folder Include="app\src\class\controllers\detail\" />
+    <Folder Include="app\src\class\controllers\detail\attendee\" />
+    <Folder Include="app\src\class\controllers\detail\session\" />
+    <Folder Include="app\src\class\controllers\schedule\" />
+    <Folder Include="app\src\class\services\" />
+    <Folder Include="app\src\class\views\" />
+    <Folder Include="app\src\class\views\calendar\" />
+    <Folder Include="app\src\class\views\detail\" />
+    <Folder Include="app\src\class\views\detail\attendee\" />
+    <Folder Include="app\src\class\views\detail\session\" />
+    <Folder Include="app\src\class\views\schedule\" />
+    <Folder Include="app\src\common\" />
+    <Folder Include="app\src\common\services\" />
+    <Folder Include="app\src\common\views\" />
+    <Folder Include="app\src\course\" />
+    <Folder Include="app\src\course\controllers\" />
+    <Folder Include="app\src\course\views\" />
+    <Folder Include="app\src\crew\" />
+    <Folder Include="app\src\crew\controllers\" />
+    <Folder Include="app\src\crew\controllers\members\" />
+    <Folder Include="app\src\crew\views\" />
+    <Folder Include="app\src\crew\views\add-to-crew\" />
+    <Folder Include="app\src\crew\views\members\" />
+    <Folder Include="app\src\dashboard\" />
+    <Folder Include="app\src\dashboard\controllers\" />
+    <Folder Include="app\src\dashboard\controllers\add-certification\" />
+    <Folder Include="app\src\dashboard\controllers\add-to-course\" />
+    <Folder Include="app\src\dashboard\views\" />
+    <Folder Include="app\src\dashboard\views\add-certification\" />
+    <Folder Include="app\src\dashboard\views\add-to-course\" />
+    <Folder Include="app\src\employee\" />
+    <Folder Include="app\src\employee\controllers\" />
+    <Folder Include="app\src\employee\controllers\certification\" />
+    <Folder Include="app\src\employee\controllers\expired\" />
+    <Folder Include="app\src\employee\controllers\expiringmeds\" />
+    <Folder Include="app\src\employee\controllers\expiring\" />
+    <Folder Include="app\src\employee\controllers\medicals\" />
+    <Folder Include="app\src\employee\controllers\note\" />
+    <Folder Include="app\src\employee\views\" />
+    <Folder Include="app\src\employee\views\certification\" />
+    <Folder Include="app\src\employee\views\expired\" />
+    <Folder Include="app\src\employee\views\expiringmeds\" />
+    <Folder Include="app\src\employee\views\expiring\" />
+    <Folder Include="app\src\employee\views\medicals\" />
+    <Folder Include="app\src\employee\views\note\" />
+    <Folder Include="app\src\instructor\" />
+    <Folder Include="app\src\instructor\controllers\" />
+    <Folder Include="app\src\instructor\views\" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

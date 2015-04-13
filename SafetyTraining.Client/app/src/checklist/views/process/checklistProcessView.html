@@ -1,0 +1,804 @@
+﻿<div class="page-header">
+    <h1>Pre-Project Checklist: <span data-ng-show="page.first">{{tabs.title[0]}}</span><span data-ng-show="page.second">{{tabs.title[1]}}</span>
+        <span data-ng-show="page.third">{{tabs.title[2]}}</span><span data-ng-show="page.fourth">{{tabs.title[3]}}</span><span data-ng-show="page.five">{{tabs.title[4]}}</span>
+        <span data-ng-show="page.six">{{tabs.title[5]}}</span><span data-ng-show="page.seven">{{tabs.title[6]}}</span></span><span data-ng-show="page.eight">{{tabs.title[7]}}</span>
+    </h1>
+</div>
+<div class="row">
+    <button data-ng-click="tab('one')" data-ng-class="{active: page.first}" class="btn">Asbestos</button>
+    <button data-ng-click="tab('two')" data-ng-class="{active: page.second}" class="btn">Basic Info</button>
+    <button data-ng-click="tab('three')" data-ng-class="{active: page.third}" class="btn">Dates</button>
+    <button data-ng-click="tab('four')" data-ng-class="{active: page.fourth}" class="btn">Fall Questions</button>
+    <button data-ng-click="tab('five')" data-ng-class="{active: page.five}" class="btn">Job Questions</button>
+    <button data-ng-click="tab('six')" data-ng-class="{active: page.six}" class="btn">Training & Misc</button>
+    <button data-ng-click="tab('seven')" data-ng-class="{active: page.seven}" class="btn">Additional Comments</button>
+    <button data-ng-click="tab('eight')" data-ng-class="{active: page.eight}" class="btn">Summary</button>
+</div>
+<div id="firstPage" class="panel-body" data-ng-show="page.first">
+    <div class="well">
+        <p class="lead">Asbestos</p>
+        <hr style="color: black; width: 20px" />
+        <div class="row">
+            <div class="col-lg-2">
+                <label for="jobSelector">Asbestos Project:
+            </div>
+            <div class="col-lg-1">
+                <input type="checkbox" value="" data-ng-model="values.isAsbestosProject" />
+            </div>
+            <div data-ng-if="values.isAsbestosProject">
+                <div class="col-lg-offset-3 col-lg-2">
+                    Do we have an Asbestos inspection?
+                </div>
+                <div class="col-lg-4">
+                    <select class="form-control" data-ng-model="values.haveAsbestosInspection" data-ng-options="answer.ID as answer.Word for answer in YesOrNo">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row" data-ng-if="values.isAsbestosProject">
+            <div class="col-lg-2">
+                Asbestos Supervisor:
+            </div>
+            <div class="col-lg-4">
+                <input type="text" value="" data-ng-model="values.asbestosSupervisor" class="form-control" />
+            </div>
+        </div>
+        <div class="row" data-ng-if="values.isAsbestosProject">
+            <div class="col-lg-2">
+                Is there a deck:
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" data-ng-model="values.isDeck" data-ng-options="answer.ID as answer.Word for answer in YesOrNo">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div data-ng-if="values.isDeck">
+                <div class="col-lg-2">
+                    Is there asbestos Material On The Underside Of The Deck:
+                </div>
+                <div class="col-lg-4">
+                    <select class="form-control" data-ng-model="values.asbestosOnDeck" data-ng-options="answer.ID as answer.Word for answer in YesOrNo">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row" data-ng-if="values.haveAsbestosInspection == 2">
+            <div class="col-lg-2">
+                Reason for not having Inspection:
+            </div>
+            <div class="col-lg-10">
+                <textarea data-ng-model="values.reasonText" class="form-control" rows="3"></textarea>
+            </div>
+        </div>
+        <br />
+
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-offset-4 col-lg-3">
+            <a data-ng-click="proceed(values.isAsbestosProject, values.haveAsbestosInspection, values.reasonText)" class="btn btn-default btn-lg" style="display: block;"><i class="glyphicon glyphicon-forward"></i>
+                <br />
+                Continue Process</a>
+        </div>
+    </div>
+</div>
+
+<div id="secondPage" class="panel-body" data-ng-show="page.second">
+    <div class="well">
+        <p class="lead">Basic Info</p>
+        <hr />
+        <div class="row">
+            <div class="col-lg-2">
+                Date:
+            </div>
+            <div class="col-lg-3">
+                <input type="date" value="" data-ng-model="values.date" class="form-control" />
+            </div>
+            <div class="col-lg-offset-1 col-lg-2">
+                Completed By:
+            </div>
+            <div class="col-lg-3">
+                <input type="text" name="" value="" data-ng-model="values.completedBy" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Job Name:
+            </div>
+            <div class="col-lg-3">
+                <input type="text" value="" data-ng-model="values.jobName" class="form-control" />
+            </div>
+            <div class="col-lg-offset-1 col-lg-2">
+                Address:
+            </div>
+            <div class="col-lg-3">
+                <input type="text" name="" value="" data-ng-model="values.completedBy" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Job Number:
+            </div>
+            <div class="col-lg-3">
+                <input type="number" value="" data-ng-model="values.jobNumber" class="form-control" />
+            </div>
+        </div>
+        <br />
+        <p class="lead">Names & Numbers</p>
+        <div class="row">
+            <div class="col-lg-2">
+                Estimator Name:
+            </div>
+            <div class="col-lg-3">
+                <input type="text" value="" data-ng-model="values.estimatorName" class="form-control" />
+            </div>
+            <div class="col-lg-offset-1 col-lg-2">
+                Number:
+            </div>
+            <div class="col-lg-3">
+                <input type="tel" name="" value="" data-ng-model="values.estimatorNumber" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Project Manager Name:
+            </div>
+            <div class="col-lg-3">
+                <input type="text" value="" data-ng-model="values.projectManagerName" class="form-control" />
+            </div>
+            <div class="col-lg-offset-1 col-lg-2">
+                Number:
+            </div>
+            <div class="col-lg-3">
+                <input type="tel" name="" value="" data-ng-model="values.projectManagerNumber" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Superintendent Name:
+            </div>
+            <div class="col-lg-3">
+                <input type="text" value="" data-ng-model="values.superintendentName" class="form-control" />
+            </div>
+            <div class="col-lg-offset-1 col-lg-2">
+                Number:
+            </div>
+            <div class="col-lg-3">
+                <input type="tel" name="" value="" data-ng-model="values.superintendentNumber" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Projected Project Foreman Name:
+            </div>
+            <div class="col-lg-3">
+                <input type="text" value="" data-ng-model="values.projectForemanName" class="form-control" />
+            </div>
+            <div class="col-lg-offset-1 col-lg-2">
+                Number:
+            </div>
+            <div class="col-lg-3">
+                <input type="tel" name="" value="" data-ng-model="values.projectForemanNumber" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Projected Assistant Foreman Name:
+            </div>
+            <div class="col-lg-3">
+                <input type="text" value="" data-ng-model="values.assistantForemanName" class="form-control" />
+            </div>
+            <div class="col-lg-offset-1 col-lg-2">
+                Number:
+            </div>
+            <div class="col-lg-3">
+                <input type="tel" name="" value="" data-ng-model="values.assistantForemanNumber" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-3">
+            <a data-ng-click="tab('one')" class="btn btn-default btn-lg" style="display: block;"><i class="glyphicon glyphicon-backward"></i>
+                <br />
+                Go Back</a>
+        </div>
+        <div class="col-lg-3">
+            <a data-ng-click="tab('three')" class="btn btn-default btn-lg" style="display: block;"><i class="glyphicon glyphicon-forward"></i>
+                <br />
+                Continue Process</a>
+        </div>
+    </div>
+    <br />
+</div>
+
+<div id="thirdPage" class="panel-body" data-ng-show="page.third">
+    <div class="well">
+        <p class="lead">Dates</p>
+        <hr />
+        <div class="row">
+            <div class="col-lg-4">
+                Projected Start Date:
+            </div>
+            <div class="col-lg-2">
+                <input type="date" value="" data-ng-model="values.startDate" class="form-control" />
+            </div>
+            <div class="col-lg-4">
+                Projected End Date:
+            </div>
+            <div class="col-lg-2">
+                <input type="date" name="" value="" data-ng-model="values.endDate" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                Projected Initial Walkthrough date with Project Foreman:
+            </div>
+            <div class="col-lg-2">
+                <input type="date" value="" data-ng-model="values.walkThroughDate" class="form-control" />
+            </div>
+            <div class="col-lg-4">
+                Will the Safety Department be attending the project walk through:
+            </div>
+            <div class="col-lg-2">
+                <select class="form-control" data-ng-options="answer.ID as answer.Word for answer in YesOrNo" data-ng-model="values.safetyAttending">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                Projected Preconstruction / startup Meeting:
+            </div>
+            <div class="col-lg-2">
+                <input type="date" value="" data-ng-model="values.preconstructionDate" class="form-control" />
+            </div>
+            <div class="col-lg-4">
+                Type of Project:
+            </div>
+            <div class="col-lg-2">
+                <select class="form-control" data-ng-options="answer.ID as answer.Word for answer in project" data-ng-model="values.projectType">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <p class="lead">Project Details</p>
+        <hr />
+        <div class="row">
+            <div class="col-lg-2">
+                Roofing System to be utilized:
+            </div>
+            <div class="col-lg-4">
+                <input type="text" value="" data-ng-model="values.roofingSystem" class="form-control" />
+            </div>
+            <div class="col-lg-2">
+                Roofing Manufacturer(MSDS'S):
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" value="" data-ng-model="values.roofingManufacturer" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Type of Building:
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" data-ng-model="values.buildingType" data-ng-options="answer.ID as answer.Word for answer in typeOfBuilding">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="col-lg-2">
+                Roof Access:
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" data-ng-model="values.roofAccess" data-ng-options="answer.ID as answer.Word for answer in roofAccess">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Is there a ships ladder on site?
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" data-ng-model="values.shipsLadder" data-ng-options="answer.ID as answer.Word for answer in YesOrNo">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="col-lg-2">
+                What Equipment will be used to load the roof:
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" data-ng-model="values.loadRoof" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                What Equipment will be used to remove debris:
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" data-ng-model="values.removeDebris" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-3">
+            <a data-ng-click="tab('two')" class="btn btn-default btn-lg" style="display: block;"><i class="glyphicon glyphicon-backward"></i>
+                <br />
+                Go Back</a>
+        </div>
+        <div class="col-lg-3">
+            <a data-ng-click="tab('four')" class="btn btn-default btn-lg" style="display: block;"><i class="glyphicon glyphicon-forward"></i>
+                <br />
+                Continue Process</a>
+        </div>
+    </div>
+    <br />
+</div>
+
+<div id="fourthPage" class="panel-body" data-ng-show="page.fourth">
+    <div class="well">
+        <p class="lead">Fall Questions</p>
+        <hr />
+        <div class="row">
+            <div class="col-lg-2">
+                Fall Protection System to be used:
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" data-ng-model="values.protectionSystem" data-ng-options="answer.ID as answer.Word for answer in protectionUsed">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div data-ng-if="values.protectionSystem == 2">
+                <div class="col-lg-2">
+                    Type of GuardRails:
+                </div>
+                <div class="col-lg-4">
+                    <select class="form-control" data-ng-model="values.guardRailsUsed" data-ng-options="answer.ID as answer.Word for answer in guardRails">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Will Fall Protection or Fall Restraint be used in installing the guardrails:
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" data-ng-model="values.guardRailProtection" data-ng-options="answer.ID as answer.Word for answer in guardRailsProtection">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="col-lg-2">
+                What is the nailer the guardrails will be installed on:
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" data-ng-model="values.nailer" value="" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Nailer Condition:
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" data-ng-model="values.nailerCondition" data-ng-options="answer.ID as answer.Word for answer in conditionNailer">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                What will be the distance between the guardrail stanchions when installed:
+            </div>
+            <div class="col-lg-4">
+                <input type="text" value="" data-ng-model="values.distanceGuardRail" class="form-control" />
+            </div>
+            <div class="col-lg-2">
+                Will the height of the guardrail system be affected by the new roof being installed:
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" value="" data-ng-model="values.guardRailHeight" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Are Parapet walls Present:
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" data-ng-model="values.parapetWalls" data-ng-options="answer.ID as answer.Word for answer in YesOrNo">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div data-ng-if="values.parapetWalls === 1">
+                <div class="col-lg-1">
+                    Parapet Height:
+                </div>
+                <div class="col-lg-2">
+                    <input type="text" class="form-control" value="" data-ng-model="values.parapetHeight" />
+                </div>
+                <div class="col-lg-1">
+                    Parapet Width:
+                </div>
+                <div class="col-lg-2">
+                    <input type="text" class="form-control" value="" data-ng-model="values.parapetWidth" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Are There Skylights That Need To Be Protected on Roof:
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" data-ng-model="values.skylights" data-ng-options="answer.ID as answer.Word for answer in YesOrNo">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div data-ng-if="values.skylights === 1">
+                <div class="col-lg-1">
+                    Skylights be:
+                </div>
+                <div class="col-lg-2">
+                    <select class="form-control" data-ng-model="values.skylightsSolution" data-ng-options="answer.ID as answer.Word for answer in skylights">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    Is there a roof hatch present on the roof?
+                </div>
+                <div class="col-lg-1">
+                    <select class="form-control" data-ng-model="values.roofHatch" data-ng-options="answer.ID as answer.Word for answer in YesOrNo">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-3">
+            <a data-ng-click="tab('three')" class="btn btn-default btn-lg" style="display: block;"><i class="glyphicon glyphicon-backward"></i>
+                <br />
+                Go Back</a>
+        </div>
+        <div class="col-lg-3">
+            <a data-ng-click="tab('five')" class="btn btn-default btn-lg" style="display: block;"><i class="glyphicon glyphicon-forward"></i>
+                <br />
+                Continue Process</a>
+        </div>
+    </div>
+    <br />
+</div>
+
+<div id="fifthPage" class="panel-body" data-ng-show="page.five">
+    <div class="well">
+        <p class="lead">Job Questions</p>
+        <hr />
+        <div class="row">
+            <div class="col-lg-2">
+                Will There Be Any Other Penetrations Into The Deck:
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" data-ng-model="values.deckPenetrations" data-ng-options="answer.ID as answer.Word for answer in YesOrNo">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="row" data-ng-if="values.deckPenetrations === 1">
+            <div class="col-lg-2">
+                Who will be cutting the penetrations:
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" data-ng-model="values.personCutting" value="" />
+            </div>
+            <div class="col-lg-2">
+                When will the penetrations be cut:
+            </div>
+            <div class="col-lg-4">
+                <input type="date" class="form-control" data-ng-model="values.cutDate" value="" />
+            </div>
+        </div>
+        <div class="row" data-ng-if="values.deckPenetrations === 1">
+            <div class="col-lg-2">
+                Who will be responsible for properly covering the penetrations:
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" data-ng-model="values.coveringPerson" value="" />
+            </div>
+            <div class="col-lg-2">
+                What method will be used for fall protection while protecting the holes:
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" data-ng-model="values.protectionMethod" value="" />
+            </div>
+        </div>
+        <br />
+        <p class="lead">Electrical</p>
+        <div class="row">
+            <div class="col-lg-4">
+                Are There Any Electrical Lines That Need to Be Insulated at or near Roof Level or Work Area:
+            </div>
+            <div class="col-lg-2">
+                <select class="form-control" data-ng-model="values.electricalWork" data-ng-options="answer.ID as answer.Word for answer in YesOrNo">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="col-lg-4">
+                Are There Any Electrical Conduits/Chemical lines on the Underside of the Deck that Need Addressing:
+            </div>
+            <div class="col-lg-2">
+                <select class="form-control" data-ng-model="values.electricalConduitWork" data-ng-options="answer.ID as answer.Word for answer in YesOrNo">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                If Hot work, Will the kettle be placed away from any air intakes / windows:
+            </div>
+            <div class="col-lg-2">
+                <select class="form-control" data-ng-model="values.kettleMoved" data-ng-options="answer.ID as answer.Word for answer in YesOrNo">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="col-lg-4">
+                Are there air intake units or penetrations that may allow fumes to access building:
+            </div>
+            <div class="col-lg-2">
+                <select class="form-control" data-ng-model="values.fumes" data-ng-options="answer.ID as answer.Word for answer in YesOrNo">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-3">
+            <a data-ng-click="tab('four')" class="btn btn-default btn-lg" style="display: block;"><i class="glyphicon glyphicon-backward"></i>
+                <br />
+                Go Back</a>
+        </div>
+        <div class="col-lg-3">
+            <a data-ng-click="tab('six')" class="btn btn-default btn-lg" style="display: block;"><i class="glyphicon glyphicon-forward"></i>
+                <br />
+                Continue Process</a>
+        </div>
+    </div>
+    <br />
+</div>
+
+<div id="sixthPage" class="panel-body" data-ng-show="page.six">
+    <div class="well">
+        <p class="lead">Training</p>
+        <hr />
+        <div class="row">
+            <div class="col-lg-2">
+                Special Training Requirements (i.e.. OSHA 10 / 30 hour / Lead / etc.):
+            </div>
+            <div class="col-lg-4">
+                <input type="text" data-ng-model="values.trainingRequirements" class="form-control" value="" />
+            </div>
+            <div class="col-lg-2">
+                Is a Site Specific Safety Plan Required For This Project:
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" data-ng-model="values.siteSpecificRequired" data-ng-options="answer.ID as answer.Word for answer in YesOrNo">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Any Additional Safety Requirements per the Specification:
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" data-ng-model="values.additionalSafety" value="" />
+            </div>
+            <div class="col-lg-2">
+                Any Additional Safety Supplies Needed For This Project:
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" data-ng-model="values.additionalSafetySupplies" value="" />
+            </div>
+        </div>
+        <br />
+        <p class="lead">Misc</p>
+        <div class="row">
+            <div class="col-lg-2">
+                Bathroom Facilities:
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" data-ng-model="values.bathroom" value="" />
+            </div>
+            <div class="col-lg-2">
+                Are Smoking, Cameras, or Cell Phones banned from the project:
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" data-ng-model="values.bannedThings" value="" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                Dumpsters or company supplied vehicles will be used for waste transportation:
+            </div>
+            <div class="col-lg-6">
+                <input type="text" class="form-control" data-ng-model="values.dumpsters" value="" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Any Sub-contractors:
+            </div>
+            <div class="col-lg-2">
+                <select class="form-control" data-ng-model="values.subContractors" data-ng-options="answer.ID as answer.Word for answer in YesOrNo">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div data-ng-if="values.subContractors === 1">
+                <div class="col-lg-2">
+                    What Trades:
+                </div>
+                <div class="col-lg-6">
+                    <input type="text" class="form-control" data-ng-model="values.subContractorTrades" value="" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Roof Pitch:
+            </div>
+            <div class="col-lg-4">
+                <select class="form-control" data-ng-model="values.roofPitch" data-ng-options="answer.ID as answer.Word for answer in pitchOfRoof">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="col-lg-2">
+                Any activities that may cause repetitive motions (lifting pavers, tiles, etc.):
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" data-ng-model="values.repetitiveMotions" value="" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-3">
+            <a data-ng-click="tab('five')" class="btn btn-default btn-lg" style="display: block;"><i class="glyphicon glyphicon-backward"></i>
+                <br />
+                Go Back</a>
+        </div>
+        <div class="col-lg-3">
+            <a data-ng-click="tab('seven')" class="btn btn-default btn-lg" style="display: block;"><i class="glyphicon glyphicon-forward"></i>
+                <br />
+                Continue Process</a>
+        </div>
+    </div>
+    <br />
+</div>
+
+<div id="seventhPage" class="panel-body" data-ng-show="page.seven">
+    <div class="well">
+        <p class="lead">Additional Comments</p>
+        <hr />
+        <div class="row">
+            <div class="col-lg-3">
+                Medical facility that will be used (or closest medical facility):
+            </div>
+            <div class="col-lg-3">
+                <input type="text" data-ng-model="values.medicalFacility" class="form-control" value="" />
+            </div>
+            <div class="col-lg-3">
+                Is there another phone number of preference for emergencies other than 911? 
+            </div>
+            <div class="col-lg-3">
+                <input type="tel" data-ng-model="values.emergencyNumber" class="form-control" value="" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                Additional Remarks:
+            </div>
+            <div class="col-lg-10">
+                <textarea class="form-control" data-ng-model="values.additionalRemarks" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-offset-3 col-lg-3">
+            <a data-ng-click="tab('six')" class="btn btn-default btn-lg" style="display: block;"><i class="glyphicon glyphicon-backward"></i>
+                <br />
+                Go Back</a>
+        </div>
+        <div class="col-lg-3">
+            <a data-ng-click="tab('eight')" class="btn btn-default btn-lg" style="display: block;"><i class="glyphicon glyphicon-stop"></i>
+                <br />
+                Finished</a>
+        </div>
+    </div>
+    <br />
+</div>
+
+<div id="summaryPage" class="panel-body" data-ng-show="page.eight">
+    <div class="well">
+        <div class="row">
+            <div class="pull-left">
+                <p class="lead" style="font-weight: 800">Asbestos Summary</p>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn sm" data-ng-click="tab('one')">Edit Asbestos Info</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                Asbestos Project:<br />
+                Do we have an Asbestos inspection?<br />
+                Asbestos Supervisor:<br />
+                Is there a deck:<br />
+                Is there asbestos Material On The Underside Of The Deck:<br />
+                Reason for not having Inspection:<br />
+            </div>
+            <div class="col-lg-6">
+                {{values.isAsbestosProject}}<br />
+                {{values.haveAsbestosInspection}}<br />
+                {{values.asbestosSupervisor}}<br />
+                {{values.isDeck}}<br />
+                {{values.asbestosOnDeck}}<br />
+                {{values.reasonText}}<br />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="pull-left">
+                <p class="lead" style="font-weight: 800">Basic Info Summary</p>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn sm" data-ng-click="tab('two')">Edit Basic Info</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                Date:<br />
+                Completed By:<br />
+                Job Number:<br />
+                Estimator Name:<br />
+                Estimator Number:<br />
+                Project Manager Name:<br />
+                Project Manager Number:<br />
+                Superintendent Name:<br />
+                Superintendent Number:<br />
+                Projected Project Foreman Name:<br />
+                Projected Project Foreman Number:<br />
+                Projected Assistant Foreman Name:<br />
+                Projected Assistant Foreman Number:<br />
+            </div>
+            <div class="col-lg-6">
+                {{values.date | date: 'shortDate'}}<br />
+                {{values.completedBy}}<br />
+                {{values.jobNumber}}<br />
+                {{values.estimatorName}}<br />
+                {{values.estimatorNumber}}<br />
+                {{values.projectManagerName}}<br />
+                {{values.projectManagerNumber}}<br />
+                {{values.superintendentName}}<br />
+                {{values.superintendentNumber}}<br />
+                {{values.projectForemanName}}<br />
+                {{values.projectForemanNumber}}<br />
+                {{values.assistantForemanName}}<br />
+                {{values.assistantForemanNumber}}<br />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="pull-left">
+                <p class="lead" style="font-weight: 800">Dates Summary</p>
+            </div>
+            <div class="pull-right">
+                <a class="btn btn sm" data-ng-click="tab('three')">Edit Dates Info</a>
+            </div>
+        </div>
+    </div>
+    <select class="col-lg-offset-4 btn btn-default btn-lg" data-ng-model="routeTo.selected" data-ng-options="person as person for person in people"><option value="">Route To</option></select>
+</div>

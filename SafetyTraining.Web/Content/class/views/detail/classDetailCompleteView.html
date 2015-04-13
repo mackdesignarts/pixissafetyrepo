@@ -1,0 +1,12 @@
+<div class="modal-header"> Select the employees who attended</div>
+<div class="modal-body" data-ng-init="results.attendees = {};">
+    <div class="checkbox" data-ng-repeat="attendee in class.ClassAttendees">
+        <label>
+            <input type="checkbox" data-ng-model="results.attendees[attendee.EmployeeID]" data-ng-init="results.attendees[attendee.EmployeeID] = true;" /> {{attendee.Employee.EmployeeFirstName}} {{attendee.Employee.EmployeeLastName}}
+        </label>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" data-ng-click="$dismiss()">Cancel</button>
+    <button class="btn btn-success" data-ng-click="$close(results)">Complete Class</button>
+</div>

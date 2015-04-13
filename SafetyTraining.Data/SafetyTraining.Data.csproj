@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70843929-5829-4F93-8490-E3F9302D950F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SafetyTraining.Data</RootNamespace>
+    <AssemblyName>SafetyTraining.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CertificationAgency.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CertificationStatu.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Checklist.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Class.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassAttendee.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassSession.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassSignInSheet.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Course.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CoursesTaken.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CoursesTakenHistory.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Crew.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CrewDetail.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CrewStatu.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbo_CTL_TS__COMPANY_INFORMATION_BAD.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbo_JCM_MASTER__JOB_BAD.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbo_PRM_MASTER__EMPLOYEE1.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeHistory.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeMedical.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeMedicalRequired.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeNote.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeNotesHistory.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeePosition.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeStatu.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Instructor.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JCM_MASTER__JOB.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Job.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobCertification.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LocationCode.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalTest.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PixisDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PixisDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PixisDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PixisDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PixisDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PRM_MASTER__EMPLOYEE.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Region.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spseCertificationAgency_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelCertificationAgencyAll_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelCertificationAgencybyName_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelCertificationAgency_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelCourses_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelCourseVar_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelCourse_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelCrewByName_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelCrewMembers_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelCrewsAll_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelCrewStatusAll_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelCrewStatus_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelCrews_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelEmployeePositionAll_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelEmployeesPaging_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelEmployeeStatus_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelEmployeeVar_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelEmployee_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelInstructorAll_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spSelInstructor_Result.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCourseBAD.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblEmployeeCourseBAD.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblInstructorBAD.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLocationBAD.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TLCompany.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserAccess.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserAccessFlag.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserCompany.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vCoursesTaken.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vCoursesTakenOLD.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vEmployee.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vEmployeeOccupation.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vGetEmployee.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vGetEmployee1.cs">
+      <DependentUpon>PixisDB.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="PixisDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PixisDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="PixisDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PixisDB.edmx</DependentUpon>
+      <LastGenOutput>PixisDB.Context.cs</LastGenOutput>
+    </None>
+    <None Include="PixisDB.edmx.diagram">
+      <DependentUpon>PixisDB.edmx</DependentUpon>
+    </None>
+    <None Include="PixisDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PixisDB.edmx</DependentUpon>
+      <LastGenOutput>PixisDB.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

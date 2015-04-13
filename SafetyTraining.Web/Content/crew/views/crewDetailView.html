@@ -1,0 +1,79 @@
+<div class="page-header">
+    <h1>Crew <small>- {{crew.CrewName}}</small></h1>
+</div>
+<tabset id="tabs" data-ng-init="tab = []">
+  <tab heading="Details" active="tab[0]"><br/>
+    <div class="well">
+      <div class="row">
+        <div class="col-md-3">
+          <label>Crew Name</label>
+          <div>{{crew.CrewName}}</div>
+        </div>
+        <div class="col-md-3">
+          <label>Last Name</label>
+          <div>{{crew.LocationCode.LocationName}}</div>
+        </div>
+        <div class="col-md-3">
+          <label>Region</label>
+          <div>{{crew.Region.Region1}}</div>
+        </div>
+  
+      </div>
+    </div>
+  </tab>
+  <tab heading="Edit" active="tab[1]" data-ng-click="edit = {}; copy(crew,edit)" >
+        <br />
+        <form name="editCrew" data-ng-submit="saveEdit(editCrew, edit)" data-ng-init="" novalidate="novalidate" class="well">
+            <div class="row">
+                <div class="col-md-3 form-group">
+                    <label>Crew Name</label>
+                    <input type="text" data-ng-model="edit.CrewName" name="crewName" class="form-control" required />
+                </div>
+                <div class="col-md-3 form-group">
+                    <label>Location Code</label>
+                    <input type="hidden" ui-select2="selects.selectLocationsConfig" data-ng-model="edit.LocationCodeID" />
+                </div>
+              <!-- <div class="col-md-3 form-group">
+                    <label>Region</label>
+                     <input type="hidden" ui-select2="selects.selectRegionsConfig" data-ng-model="edit.RegionID" name="region" />
+                </div>-->
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 col-md-offset-9 text-right">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <button type="submit" data-ng-click="tab[0] = true; copy(crew,edit)" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+        </form>
+  </tab>
+  
+  <tab heading="Members" active="tab[2]"><br/>
+    <div class="well">
+      <div class="text-right"><a class="btn btn-success" data-ui-sref="app.crew.detail.addMember">Add Member</a> <!--<a class="btn btn-primary">Schedule Course</a>--></div>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Member Name</th>
+            <th>Department</th>
+            <th>Occupation</th>
+            <th>Hire Date</th>
+             <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="detail in crew.CrewDetails">
+                <td>{{detail.Employee.EmployeeFirstName}} {{detail.Employee.EmployeeLastName}} </td>
+                <td>{{detail.Employee.Department}}</td>
+                <td>{{detail.Employee.Occupation}}</td>
+                <td>{{detail.Employee.HireDate | date:'MM/dd/yyyy'}}</td>
+                <td><a data-ng-click="removeMember(detail.CrewDetailID);">Remove</a></td>
+              </tr>
+            <tr data-ng-if="crew.CrewDetails.length == 0">
+                <td colspan="5" style="text-align:center">No crew members on record</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </tab>
+</tabset>

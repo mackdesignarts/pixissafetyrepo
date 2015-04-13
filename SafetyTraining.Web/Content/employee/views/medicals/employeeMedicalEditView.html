@@ -1,0 +1,37 @@
+
+<form name="editMedicalForm" data-ng-submit="editMedical(med, editMedicalForm)" novalidate="novalidate">
+    <div class="well">
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>Employee</label>
+                <div class="form-control">{{employee.EmployeeFirstName}} {{employee.EmployeeLastName}}</div>
+            </div>
+        </div>
+       <div class="row">
+            <div class="col-md-12 form-group">
+                <label>Medical Test Type</label>
+                <input type="hidden" ui-select2="selects.selectMedicalTestConfig" data-ng-model="med.MedicalTestID" required="required" name="medicalTest" />
+            </div>
+        </div>
+ 
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>Date</label>
+                <input type="text" datepicker-popup="MM/dd/yyyy" ng-model="med.MedicalTestDate" class="form-control" name="medicalTestDate" id="medicalDate" />
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-md-12 form-group">
+                <label>Notes</label>
+                <textarea rows="2" ng-model="med.MedicalNote" class="form-control" name="medicalNote" />
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="col-md-6 col-md-offset-6">
+            <p class="text-right">
+               <a data-ng-click="deleteMed(med)" class="btn btn-danger btn-remove">Delete</a>  <input type="submit" value="Save" class="btn btn-success" /> <a data-ng-click="cancel()" class="btn btn-default">Cancel</a>
+            </p>
+        </div>
+    </div>
+</form>

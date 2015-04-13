@@ -1,0 +1,39 @@
+
+<form name="addInstructor" data-ng-submit="add(instructor, addInstructor)" data-ng-init="instructor = {}" novalidate="novalidate">
+    <div class="well">
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label>Name</label>
+                <input type="text" data-ng-model="instructor.InstructorName" required="required" class="form-control" />
+            </div>
+            <div class="col-md-6 form-group">
+                <label>Region</label>
+                <input type="hidden" ui-select2="selects.selectRegionsConfig" data-ng-model="instructor.RegionID" name="region" required="required" />
+            </div>
+        </div><br />
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label>Is Active</label>
+                <div class="checkbox">
+                    <label></label>
+                    <input type="checkbox" data-ng-model="instructor.Active" data-ng-true-value="true" data-ng-false-value="false" />Yes
+                </div>
+            </div>
+            <div class="col-md-6 form-group">
+                <label>Union Hired</label>
+                <div class="checkbox">
+                    <label></label>
+                    <input type="checkbox" data-ng-model="instructor.UnionHired" data-ng-true-value="true" data-ng-false-value="false" />Yes
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clearfix">
+        <div class="col-md-6 col-md-offset-6">
+            <p class="text-right">
+                <input type="submit" value="Add" class="btn btn-success" /> <a data-ng-click="cancel()" class="btn btn-default">Cancel</a>
+            </p>
+        </div>
+    </div>
+</form>

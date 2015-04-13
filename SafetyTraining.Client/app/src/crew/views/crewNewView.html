@@ -1,0 +1,29 @@
+<form name="addEmpoyees" data-ng-submit="createCrew(add, addEmpoyees)" data-ng-init="add = {}" novalidate="novalidate">
+    <div class="well">
+        <h3>Create New Crew</h3>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label>Select crew foreman</label>
+                <input type="hidden" ui-select2="selects.selectEmployeeConfig" data-ng-model="add.Employee" name="employees" required="required" />
+            </div>
+            <div class="col-md-6 form-group">
+                <label>Location Code</label>
+                <input type="hidden" ui-select2="selects.selectLocationsConfig" data-ng-model="add.LocationCodeID" />
+            </div>
+        </div>
+       <!-- <div class="row">
+            <div class="col-md-6 form-group">
+                <label>Region</label>
+                <input type="hidden" ui-select2="selects.selectRegionsConfig" data-ng-model="add.RegionID" name="region" />
+            </div>
+        </div>-->
+    </div>
+    <div class="clearfix">
+        <div class="col-md-6 col-md-offset-6">
+            <p class="text-right">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a data-ng-click="cancel()" class="btn btn-default">Cancel</a>
+            </p>
+        </div>
+    </div>
+</form>

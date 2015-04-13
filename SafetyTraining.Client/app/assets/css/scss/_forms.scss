@@ -1,0 +1,82 @@
+/////////// FORMS ////////////
+
+input[type=text],
+input[type=tel],
+input[type=number],
+input[type=url],
+input[type=search],
+input[type=color],
+input[type=datetime],
+input[type='datetime-local'],
+input[type=email],
+input[type=month],
+input[type=range],
+input[type=week],
+input[type=time],
+input[type=password],
+input[type=date] {
+  outline: none;
+  &:focus, &:active {
+    outline: none;
+  }
+  &.pending-ajax-validation {
+    background: {
+      image: url('../imgs/icons/ajax-loader.gif') !important;
+      position: right center !important;
+      repeat: no-repeat;
+    }
+  }
+}
+
+.select2-container{
+  width: 100%;
+}
+
+.dd-selectmenu, input {
+  &.ng-invalid.submit-attempt,&.ng-invalid.ng-dirty:focus {
+    background-color: #F8E7E7;
+    border-color: #E0A7A6;
+    .dd-selectmenu-icon {
+      background-color: #E0A7A6;
+    }
+  }
+}
+
+.validation-bubble {
+  background-color: #EE8988;
+  position: absolute;
+  max-width: 250px;
+  padding: 10px;
+  margin-bottom: 14px;
+  @include box-shadow(-6px 6px rgba(100, 100, 100, 0.2));
+  &:after {
+    content: "";
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 8px solid #EE8988;
+    height: 0;
+    bottom: -8px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 0;
+  }
+  &:before {
+    content: "";
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 8px solid #646464;
+    @include opacity(0.2);
+    height: 0;
+    bottom: -14px;
+    position: absolute;
+    left: -6px;
+    right: 0;
+    margin: 0 auto;
+    width: 0;
+  }
+  .message {
+    color: #fff;
+  }
+}

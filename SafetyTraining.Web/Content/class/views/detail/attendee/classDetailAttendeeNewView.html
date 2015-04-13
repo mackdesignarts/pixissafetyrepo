@@ -1,0 +1,17 @@
+<form name="addAttendee" data-ng-submit="addAttendees(newAttendees.Attendees, addAttendee)" data-ng-init="newAttendees = {Attendees:[]}" novalidate="novalidate">
+    <div class="well">
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>Attendee(s)</label>
+                <input type="hidden" ui-select2="selects.selectEmployeesConfig" data-ng-model="newAttendees.Attendees" name="attendees" required="required" />
+            </div>
+            <div class="clearfix">
+                <div class="col-md-6 col-md-offset-6">
+                    <p class="text-right">
+                        <input type="submit" value="Save" class="btn btn-success" /> <a data-ng-click="cancel()" class="btn btn-default">Cancel</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

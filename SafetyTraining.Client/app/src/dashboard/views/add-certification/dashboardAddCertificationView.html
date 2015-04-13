@@ -1,0 +1,36 @@
+
+<form name="addCertification" data-ng-submit="addCert(cert, addCertification)" data-ng-init="cert = {}" novalidate="novalidate">
+    <div class="well">
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>Employee(s)</label>
+                <input type="hidden" ui-select2="selects.selectEmployeesConfig" data-ng-model="cert.Employees" name="employees" required="required" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>Certification / Course Completed</label>
+                <input type="hidden" ui-select2="selects.selectCourseConfig" data-ng-model="cert.CourseID" required="required" name="course" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>Instructor</label>
+                <input type="hidden" ui-select2="selects.selectInstructorConfig" data-ng-model="cert.InstructorID" name="instructor" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>Date of Certification</label>
+                <input type="text" datepicker-popup="MM/dd/yyyy" ng-model="cert.CertificationDate" class="form-control" name="certificationDate" />
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="col-md-6 col-md-offset-6">
+            <p class="text-right">
+                <input type="submit" value="Save" class="btn btn-success" /> <a data-ng-click="cancel()" class="btn btn-default">Cancel</a>
+            </p>
+        </div>
+    </div>
+</form>

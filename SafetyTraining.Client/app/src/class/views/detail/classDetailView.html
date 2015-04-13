@@ -1,0 +1,188 @@
+<div class="page-header">
+    <h1>Class <small>- {{class.ClassName}} </small>
+        <div class="pull-right">
+            <a href="" class="btn btn-primary" data-print-div="#sign-in-sheet">Print Sign-in Sheet</a>
+            <a href="" class="btn btn-primary" data-print-div="#pocket-cards">Print Pocket Cards</a>
+            <a href="" class="btn btn-success" data-ng-show="!class.Completed" data-ng-click="openCompletedModal()">Mark as completed</a>
+            <a href="" class="btn btn-primary" data-ng-show="class.Completed" data-print-div="#certificates">Print Certifications</a>
+        </div>
+    </h1>
+</div>
+
+<tabset id="tabs" data-ng-init="tab = []">
+  <tab heading="Details" active="tab[0]"><br/>
+    <div class="well">
+      <div class="row">
+        <div class="col-md-3">
+          <label>Class Name</label>
+          <div>{{class.ClassName}}</div>
+        </div>
+        <div class="col-md-3">
+          <label>Instructor</label>
+          <div>{{class.Instructor.InstructorName}} </div>
+        </div>          
+        <div class="col-md-6">
+          <label>Instructor Notes</label>
+            <div>{{class.InstructorNotes}}</div>
+        </div> 
+      </div><br />
+    <div class="row">
+            <div class="col-md-3">
+              <label>Start</label>
+              <div>{{class.ScheduledStartDate  | date : "shortDate"}} {{class.ScheduledStartTime  | date : "shortTime"}}</div>
+            </div>
+            <div class="col-md-3">
+              <label>End</label>
+              <div>{{class.ScheduledEndDate  | date : "shortDate"}} {{class.ScheduledEndTime  | date : "shortTime"}}</div>
+            </div>
+            <div class="col-md-3">
+              <label>Region</label>
+              <div>{{class.Region.Region1}}</div>
+            </div>    
+            <div class="col-md-3">
+              <label>Location</label>
+              <div>{{class.LocationCode.LocationName}}</div>
+            </div> 
+      </div><br />
+
+    <div class="row">
+            <div class="col-md-12">
+              <label>Address</label>
+              <div>{{class.StreetAddress1}}</div><div>{{class.StreetAddress2}}</div><div>{{class.City}} {{class.State}} {{class.Zip}}</div>
+            </div>
+
+      </div>
+    </div>
+  </tab>
+    <tab heading="Edit" active="tab[1]" data-ng-click="edit = {}; copy(class,edit)" >
+        <br />
+        <form name="editClass" data-ng-submit="saveEdit(editClass, edit)" data-ng-init="" novalidate="novalidate" class="well">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label>Class Name</label>
+                    <input type="text" data-ng-model="edit.ClassName" name="className" class="form-control" required />
+                </div>
+      <div class="col-md-3 form-group">
+        <label>Location Code</label>
+        <input type="hidden" ui-select2="selects.selectLocationsConfig" data-ng-model="edit.LocationCodeID" ng-change="locationChanged(class)" />
+      </div>
+
+       </div>
+      <div class="row">
+          <div class="col-md-3 form-group">
+            <label>Scheduled Start Date</label>
+            <input type="text" datepicker-popup="MM/dd/yyyy" data-ng-model="edit.ScheduledStartDate" required="required" name="scheduledStartDate" id="scheduleStDate" class="form-control"/>
+          </div>
+          <div class="col-md-3 form-group">
+             <label>Scheduled Start Time</label>
+             <input type="time" data-ng-model="edit.ScheduledStartTime" name="scheduledStartTime" class="form-control">
+          </div>
+
+          <div class="col-md-3 form-group">
+            <label>Scheduled End Date</label>
+            <input type="text" datepicker-popup="MM/dd/yyyy" data-ng-model="edit.ScheduledEndDate" name="scheduledEndDate" required="required" class="form-control" id="scheduleEndDate" />
+          </div>
+          <div class="col-md-3 form-group">
+             <label>Scheduled End Time</label>
+             <input type="time" data-ng-model="edit.ScheduledEndTime" name="scheduledEndTime"  class="form-control">
+          </div>
+      </div>
+    <div class="row">
+        <h3>Location</h3>
+        <div class="col-md-6 form-group">
+            <label>Street Address</label>
+            <input data-ng-model="edit.StreetAddress1" name="streetaddress1" class="form-control">
+        </div>
+        <div class="col-md-2 form-group">
+            <label>Suite/Room/Floor</label>
+            <input data-ng-model="edit.StreetAddress2" name="streetaddress2" class="form-control">
+        </div>
+        <div class="col-md-2 form-group">
+            <label>Instructor</label>
+            <input type="hidden" ui-select2="selects.selectInstructorConfig" data-ng-model="edit.InstructorID" name="instructorID" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <label>City</label>
+            <input data-ng-model="edit.City" name="city" class="form-control">
+        </div>
+        <div class="col-md-2 form-group">
+            <label>State</label>
+            <input data-ng-model="edit.State" name="state" class="form-control">
+        </div>
+        <div class="col-md-2 form-group">
+            <label>Zip</label>
+            <input data-ng-model="edit.Zip" name="zip" maxlength="10" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <h3>Notes</h3>
+        <div class="col-md-6 form-group">
+            
+            <textarea data-ng-model="edit.InstructorNotes" rows="3" name="instructorNotes" class="form-control" ></textarea>
+        </div>
+       
+    </div>        
+            <br />
+            <div class="row">
+                <div class="col-md-3 col-md-offset-9 text-right">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <button type="submit" data-ng-click="tab[0] = true; copy(class,edit)" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </tab>
+<tab heading="Sessions" active="tab[2]" >
+    <div class="row">
+        <div class="pull-right">
+            <a data-ui-sref="app.class.detail.addSession" class="btn btn-success">Add Session</a>
+        </div><br /><br />
+        <table class="table table-striped table-hover">
+            <tbody data-ng-repeat="session in class.ClassSessions">
+                <tr>
+                    <td>{{session.Course.CourseDescription}}</td>
+                    <td> <a ng-click="removeSession(session)">Remove</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</tab>
+<tab heading="Attendees" active="tab[3]" >
+    <div class="row">
+        <div class="pull-right">
+            <a data-ui-sref="app.class.detail.addAttendee" class="btn btn-success">Add Attendee</a>
+        </div><br /><br />
+        <table class="table table-striped table-hover">
+            <tbody data-ng-repeat="employee in class.ClassAttendees">  
+                <tr>
+                    <td>{{employee.Employee.EmployeeFirstName}} {{employee.Employee.EmployeeLastName}}</td>
+                    <td> <a ng-click="removeAttendee(employee)">Remove</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</tab>
+<tab heading="Signin Sheet" active="tab[4]" >
+    <div class="pull-right">
+    <a href="SigninSheet/PDF/{{class.ClassID}}" class="btn btn-success" target="_blank">View Signin Sheets</a>
+    </div>
+ <form action="{{SigninAction}}" method="post" enctype="multipart/form-data">
+    <label>Select sign in sheet for uploading</label>
+    <input type="file" name="file" id="file" class="btn btn-primary"/><br />
+    <input type="submit" class="btn btn-success"/>
+</form>
+</tab>
+</tabset>
+
+<div id="sign-in-sheet" data-ng-include="'templates/_printClassSignIn.html'" style="display: none;"></div>
+<div id="certificates" style="display: none;">
+    <div data-ng-repeat="cert in attended track by $index">
+        <div data-ng-include="'templates/_printClassCert.html'"></div>
+    </div>
+</div>
+<div id="pocket-cards" style="display: none;">
+    <div data-ng-repeat="cert in attended track by $index">
+        <div data-ng-include="'templates/_printPocketCards.html'"></div>
+    </div>
+</div>

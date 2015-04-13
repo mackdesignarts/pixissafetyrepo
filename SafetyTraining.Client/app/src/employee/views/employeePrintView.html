@@ -1,0 +1,11 @@
+﻿<div class="row" data-ng-repeat="employee in all.value | orderBy: ['TLCompany.Company_Name','EmployeeLastName','EmployeeFirstName']" data-ng-init="getAll();">
+    <div class="header row" data-ngif="$index == 0 || allEmployees[$index - 1].TLCompany.Company_Name !== employee.TLCompany.Company_Name">
+        {{employee.TLCompany}} - {{employee.DBID}} - 
+    </div>
+    <div class="row">
+        <div class="col-xs-3">{{employee.EmployeeLastName}}, {{employee.EmployeeFirstName}}</div>
+        <div class="col-xs-3">{{employee.Occupation}}</div>
+        <div class="col-xs-3">{{employee.HireDate | date: 'MM/dd/yyyy'}}</div>
+        <div class="col-xs-3">{{employee.CourseTakens.length}} Certificates</div>
+    </div>
+</div>

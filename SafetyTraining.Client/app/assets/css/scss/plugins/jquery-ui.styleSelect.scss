@@ -1,0 +1,172 @@
+@import "compass/css3";
+
+$light-border: #ccc;
+$font-color: #333;
+$link-color: #333;
+$border-color: #ccc;
+
+select.styled {
+  /* This hides the browser's select */
+  position: absolute;
+  left: -99999px;
+}
+
+.dd-selectmenu {
+  /* This is what replaces the browser's select */
+  @include box-sizing(border-box);
+  border: 1px solid $border-color;
+  background-color: #fff;
+  color: $font-color;
+  display: inline-block;
+  min-height: 2em;
+  line-height: 2em;
+  margin: 0;
+  outline: none;
+  padding: 4px 45px 4px 5px;
+  position: relative;
+  text-align: left;
+  text-decoration: none !important;
+  .option-image {
+    margin: 0 10px 3px 0;
+  }
+  &:active, &:focus, &:hover {
+    background: #fff;
+    border: 1px solid shade($border-color, 20);
+    .dd-selectmenu-icon {
+      color: $font-color;
+    }
+  }
+}
+
+.dd-selectmenu-status, .dd-selectmenu-status:hover, .dd-selectmenu-status:focus {
+  /* This is the currently selected item */
+  text-decoration: none;
+  color: $font-color;
+  margin-left: 5px;
+  text-transform: none !important;
+}
+
+.dd-selectmenu-icon {
+  border-left: 1px solid $border-color;
+  color: tint($font-color, 15);
+  font-size: 1.5rem;
+  height: 100%;
+  line-height: 2.4;
+  position: absolute !important;
+  right: 0px;
+  top: 0;
+  text-align: center;
+  text-indent: 0;
+}
+
+.dd-selectmenu-icon:before {
+  content: "9";
+  display: block;
+  width: 3.4rem;
+  height: 100%;
+  font-family: 'pcfh';
+  font-style: normal;
+  font-size: 20px;
+  font-size: 2rem;
+  line-height: 1.6;
+  font-weight: normal;
+  text-decoration: inherit;
+  text-align: center;
+  speak: none;
+  @include box-sizing(border-box);
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.dd-selectmenu:focus .dd-selectmenu-icon.icon {
+  color: $font-color;
+}
+
+.dd-selectmenu-menu {
+  /* This is the list that appears with all of the options */
+  max-height: 300px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  position: absolute;
+  border: 1px solid shade($border-color, 20);
+  .option-image {
+    margin: 0 10px 3px 0;
+  }
+  z-index: 10002;
+}
+
+.dd-selectmenu-menu li {
+  /* This is a list item, they click on this to select the item */
+  background: rgb(255, 255, 255);
+  display: block;
+  list-style-type: none;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.dd-selectmenu-menu li a {
+
+}
+
+.dd-selectmenu-menu.multi li a {
+  /* This is the mutli-select option that isn't selected */
+  outline: none;
+  position: relative;
+  &:after {
+    display: inline-block;
+    opacity: 0.75;
+    margin: 0em 0.25em 0em 0em;
+    width: 1.23em;
+    height: 1em;
+    font-family: 'Icons';
+    font-style: normal;
+    line-height: 1;
+    font-weight: normal;
+    text-decoration: inherit;
+    text-align: center;
+    speak: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    font-size: 1.5em;
+    vertical-align: middle;
+    color: #c5c5c5;
+    margin-top: -7px;
+    content: "\f00c";
+    position: absolute;
+    right: -25px;
+    top: 10px;
+  }
+}
+
+.dd-selectmenu-menu.multi li.checked a {
+  /* This is the mutli-select option that is selected */
+  &:after {
+    color: #A1CF64;
+  }
+}
+
+.dd-selectmenu-menu li.dd-selectmenu-cur {
+  /* This is the focused item, via hover or keyboard controls */
+  background-color: rgb(225, 225, 225);
+}
+
+.dd-selectmenu-menu li a {
+  /* This is a list item value, it contains the text displayed */
+  border: none;
+  color: $font-color;
+  display: block;
+  margin-right: 16px;
+  padding: 5px 0;
+  text-decoration: none;
+  text-transform: none;
+  &:active {
+    top: 0;
+  }
+}

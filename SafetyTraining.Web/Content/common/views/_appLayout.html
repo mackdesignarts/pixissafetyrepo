@@ -1,0 +1,31 @@
+<div data-ng-init="isCollapsed = true" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" data-ng-click="isCollapsed = !isCollapsed" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a data-ui-sref="app.dashboard" class="navbar-brand">Safety Training</a>
+    </div>
+    <div collapse="isCollapsed" class="navbar-collapse collapse nav navbar-nav">
+      <ul class="nav navbar-nav">
+        <li data-ng-class="{active: $state.includes('app.employee')}"><a data-ui-sref="app.employee.index">Employees</a></li>
+        <li data-ng-class="{active: $state.includes('app.class')}"><a data-ui-sref="app.class.index">Classes</a></li>
+        <li data-ng-class="{active: $state.includes('app.calendar')}"><a data-ui-sref="app.calendar">Calendar</a></li>    
+        <li data-ng-class="{active: $state.includes('app.course')}"><a data-ui-sref="app.course.index">Courses</a></li>
+        <li data-ng-class="{active: $state.includes('app.instructor')}"><a data-ui-sref="app.instructor.index">Instructors</a></li>
+         <li data-ng-class="{active: $state.includes('app.crew')}"><a data-ui-sref="app.crew.index">Crews</a></li>   
+         <li data-ng-class="{active: $state.includes('app.checklist')}"><a data-ui-sref="app.checklist.index">Project Checklist</a></li>   
+      </ul>
+    </div>
+      <div class="nav navbar-nav navbar-right" style="width: 300px;margin-top:12px;">
+          <input type="hidden" ui-select2="selects.selectCompanyConfig" data-ng-model="$root.CompanyId" required="required" data-ng-change="companyChange()" />
+      </div>
+  </div>
+</div>
+
+<!-- Angular ui-view -->
+<div id="main-content" data-ui-view="" class="container animate-fade"></div>
+
+<div class="container">
+  <hr/>
+  <footer>
+    <p>&copy; Pixis 2014</p>
+  </footer>
+</div>

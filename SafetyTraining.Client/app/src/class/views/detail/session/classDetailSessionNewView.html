@@ -1,0 +1,17 @@
+<form name="addSession" data-ng-submit="addSessions(newCourse, addSession)" data-ng-init="newCourse={Item:0}" novalidate="novalidate">
+    <div class="well">
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>Sessions(s)</label>
+                <input type="hidden" ui-select2="selects.selectCourseConfig" data-ng-model="newCourse.Item" name="sessions" required="required" />
+            </div>
+            <div class="clearfix">
+                <div class="col-md-6 col-md-offset-6">
+                    <p class="text-right">
+                        <input type="submit" value="Save" class="btn btn-success" /> <a data-ng-click="cancel()" class="btn btn-default">Cancel</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

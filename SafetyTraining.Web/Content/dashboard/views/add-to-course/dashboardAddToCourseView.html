@@ -1,0 +1,30 @@
+
+<form name="addToCourse" data-ng-submit="schedule(course)" data-ng-init="course = {}" novalidate="novalidate">
+    <div class="well">
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>Employee(s)</label>
+                <input type="hidden" ui-select2="selects.selectEmployeesConfig" data-ng-model="cert.Employees" required="required" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>Certification / Course</label>
+                <input type="hidden" ui-select2="selects.selectCourseConfig" data-ng-model="cert.CourseID" required="required" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label>Date of Course</label>
+                <input type="text" datepicker-popup="MM/dd/yyyy" ng-model="cert.CertificationDate" class="form-control" />
+            </div>
+        </div>
+    </div>
+  <div class="clearfix">
+    <div class="col-md-6 col-md-offset-6">
+      <p class="text-right">
+        <input type="submit" value="Save" class="btn btn-success"/> <a data-ng-click="cancel()" class="btn btn-default">Cancel</a> 
+      </p>
+    </div>
+  </div>
+</form>

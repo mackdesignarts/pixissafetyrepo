@@ -1,0 +1,65 @@
+<div class="page-header">
+    <h1>Pre-Project Checklist  </h1>
+</div>
+<div class="panel-body">
+    <div class="well">
+        <p class="lead">Begin New Process</p>
+        <hr />
+        <div class="row">
+            <div class="col-lg-1">
+                <label for="jobSelector">Select Job:</label>
+            </div>
+            <div class="col-lg-5">
+                <select class="form-control" id="jobSelector" data-ng-model="values.selectedJob" data-ng-options="job as ('Job: ' + job.TLJob  + &nbsp; + &nbsp; '  Name: ' + job.JobDescription) for job in allJobs | filter: {JobStatus: 'In Progress'}">
+                    <option value="">Select Job</option>
+                </select>
+            </div>
+            <div class="col-lg-offset-1 col-lg-3">
+                <a data-ui-sref="app.checklist.start" class="btn btn-default" style="display: block;"><i class="glyphicon glyphicon-play"></i>
+                    <br />
+                    Begin Pre-Project Checklist</a>
+            </div>
+        </div>
+        <br />
+        <input id="test" type="button" value="click" ng-click="test();" /> 
+    </div>
+</div>
+<div class="row">
+    <p class="lead">Search Existing Checklist</p>
+    <div class="form-group col-md-3">
+        <div class="input-group">
+            <label>Search</label>
+          <input type="search" data-ng-model="values.search" placeholder="Search" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group col-md-2">
+        <div class="input-group">
+            <label>Checklist Status</label>
+        <select class="form-control" data-ng-model="values.selectedStatus"><option value=""></option><option value="Step 1">Step 1</option><option value="Step 2">Step 2</option><option value="Step 3">Step 3</option></select>
+
+        </div>
+    </div>
+    <div class="col-md-2 form-group">
+        <label>Assigned To</label>
+        <select class="form-control" data-ng-model="values.selectedPerson"><option value=""></option><option value="Christina">Christina</option><option value="Jeff">Jeff</option><option value="Beth">Beth</option></select>
+    </div>
+
+</div>
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>TL Job</th>
+            <th>Checklist Status</th>
+            <th>Assigned To</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="data in existingJobs | filter: {AssignedTo: values.selectedPerson} | filter: {ChecklistStatus: values.selectedStatus} | filter:{TLJob: values.search}">
+            <td>{{data.TLJob}}</td>
+            <td>{{data.ChecklistStatus}}</td>
+            <td>{{data.AssignedTo}}</td>
+        </tr>
+    </tbody>
+</table>

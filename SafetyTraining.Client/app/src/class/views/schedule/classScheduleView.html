@@ -1,0 +1,108 @@
+<form name="addClass" data-ng-submit="add(class, addClass)" data-ng-init="class = {}" novalidate="novalidate">
+
+    <h1>Schedule Class</h1>
+
+    <div class="row">
+        <div class="col-md-12 form-group" show-errors>
+            <label>Class Name</label>
+            <input data-ng-model="class.ClassName" required="required" class="form-control" name="className" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9 form-group">
+            <label>Employee(s)</label>
+            <input type="hidden" ui-select2="selects.selectEmployeesConfig" data-ng-model="class.ClassAttendees" name="employees" />
+        </div>
+        <div class="col-md-3 form-group" show-errors>
+            <label>Instructor</label>
+            <input type="hidden" ui-select2="selects.selectInstructorConfig" data-ng-model="class.InstructorID" name="instructor" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 form-group" show-errors>
+            <label>Scheduled Start Date</label>
+            <input type="text" datepicker-popup="MM/dd/yyyy" data-ng-model="class.ScheduledStartDate" required="required" name="scheduledStartDate" id="scheduledStartDate" class="form-control" required  />
+        </div>
+        <div class="col-md-3 form-group">
+            <label>Scheduled Start Time</label>
+            <input type="time" data-ng-model="class.ScheduledStartTime" name="scheduledStartTime" class="form-control">
+        </div>
+
+        <div class="col-md-3 form-group">
+            <label>Scheduled End Date</label>
+            <input type="text" datepicker-popup="MM/dd/yyyy" data-ng-model="class.ScheduledEndDate" name="scheduledEndDate" class="form-control" id="scheduledEndDate" />
+        </div>
+        <div class="col-md-3 form-group">
+            <label>Scheduled End Time</label>
+            <input type="time" data-ng-model="class.ScheduledEndTime" name="scheduledEndTime" class="form-control">
+        </div>
+    </div>
+
+    <h2>Sessions</h2>
+
+    <div class="row">
+
+        <div class="pull-right">
+            <a data-ng-click="addSession()" class="btn btn-default">Add Another Session</a>
+        </div>
+
+        <div data-ng-repeat="session in Sessions">
+            <div class="col-md-6 form-group" show-errors>
+                <input type="hidden" ui-select2="selects.selectCourseConfig" data-ng-model="session.CourseID" name="courseID" required />
+            </div>
+            <div class="col-md-2 form-group">
+                <a ng-click="removeSession($index)">Remove Session</a>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+    </div>
+    <br />
+
+
+    <div class="row pull-left col-md-6">
+        <h2>Location</h2>
+        <div class="row">
+            <div class="col-md-12 form-group" show-errors>
+                <input type="hidden" ui-select2="selects.selectLocationsConfig" data-ng-model="class.LocationCodeID" ng-change="locationChanged(class)" name="location" required />
+            </div>
+            <div style="clear: both"></div>
+            <div class="col-md-8 form-group">
+                <label>Street Address</label>
+                <input data-ng-model="class.StreetAddress1" name="streetaddress1" class="form-control">
+            </div>
+            <div class="col-md-4 form-group">
+                <label>Suite/Room/Floor</label>
+                <input data-ng-model="class.StreetAddress2" name="streetaddress2" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 form-group" >
+                <label>City</label>
+                <input data-ng-model="class.City" name="city" class="form-control"/>
+            </div>
+            <div class="col-md-2 form-group" >
+                <label>State</label>
+                <input data-ng-model="class.State" name="state" class="form-control" />
+            </div>
+            <div class="col-md-2 form-group" >
+                <label>Zip</label>
+                <input data-ng-model="class.Zip" name="zip" class="form-control" maxlength="10"/>
+            </div>
+        </div>
+    </div>
+    <div class="row pull-right col-md-6">
+        <h2>Notes</h2>
+
+        <textarea data-ng-model="class.InstructorNotes" rows="3" name="instructorNotes" class="form-control" ></textarea>
+    </div>
+    <div class="clearfix">
+        <div class="col-md-6 col-md-offset-6">
+            <p class="text-right">
+                <input type="submit" value="Schedule Class" class="btn btn-primary" />
+               
+      <!--          <input type="submit" value="Old Schedule Class" class="btn btn-success" />-->
+                <a data-ng-click="cancel()" class="btn btn-default">Cancel</a>
+            </p>
+        </div>
+    </div>
+</form>

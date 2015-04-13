@@ -1,0 +1,84 @@
+<div class="page">
+    <div class="row">
+        <div class="col-xs-4">
+            <div>COURSE LOCATION</div>
+        </div>
+        <div class="col-xs-8">
+            <div class="blank-line">{{class.StreetAddress1}}&nbsp;{{class.StreetAddress2}} {{class.City}} {{class.State}} {{class.Zip}}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">COURSE TITLE</div>
+        <div class="col-xs-8"><div class="blank-line">{{class.ClassName}}&nbsp;</div></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">Name &amp; Phone Number of Instructor</div>
+        <div class="col-xs-8"><div class="blank-line">{{class.Instructor.InstructorName}}&nbsp;{{class.Instructor.PhoneNumber}}</div></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">Course Dates:</div>
+        <div class="col-xs-8">
+            <div class="blank-line">
+                {{class.ScheduledStartDate | date: 'M/d/yyyy'}}&nbsp;
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">Completion Date:</div>
+        <div class="col-xs-8"><div class="blank-line">{{class.ScheduledEndDate | date: 'M/d/yyyy'}}&nbsp;</div></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="sign-in table table-condensed table-bordered">
+                <thead>
+                    <tr>
+                        <th>Print or Type Name</th>
+                        <th>PLEASE SIGN YOUR NAME</th>
+                        <th>Branch, Local # or Division</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PRINT YOUR NAME AS IT APPEARS ON YOUR PAYCHECK</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr data-ng-repeat="row in getRange(30) track by $index">
+                        <td width="33%">{{class.ClassAttendees[$index].Employee.EmployeeFirstName}}&nbsp;{{class.ClassAttendees[$index].Employee.EmployeeLastName}}</td>
+                        <td width="33%">&nbsp;</td>
+                        <td width="33%" data-ng-if="class.ClassAttendees[$index]">{{class.ClassAttendees[$index].Employee.Department.substr(0,2)}}-{{class.ClassAttendees[$index].Employee.Department.substr(2)}}-{{class.ClassAttendees[$index].Employee.TLEmployee.substr(0,3)}}</td>
+                        <td width="33%" data-ng-if="!class.ClassAttendees[$index]">&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="row">
+                <p class="col-xs-6">CERTIFICATES</p>
+                <div class="col-xs-3">yes</div>
+                <div class="col-xs-3">no</div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="row">
+                <p class="col-xs-6">POCKET CARDS</p>
+                <div class="col-xs-3">yes</div>
+                <div class="col-xs-3">no</div>
+            </div>
+        </div>
+        <br /><br />
+    </div>
+
+    <div class="row">
+        <p class="col-xs-12">NOTES FROM INSTRUCTOR</p>
+        <br />
+        <br />
+    </div>
+
+    <div class="row">
+        <p class="col-xs-12">INSTRUCTOR SIGNATURE</p>
+    </div>
+</div>

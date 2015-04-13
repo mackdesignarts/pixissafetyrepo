@@ -1,0 +1,196 @@
+
+<div class="page-header">
+  <h1>Employee <small> - {{employee.EmployeeFirstName}} {{employee.EmployeeLastName}}</small></h1>
+</div>
+<tabset id="tabs" data-ng-init="tab = []">
+  <tab heading="Details" active="tab[0]"><br/>
+    <div class="well">
+      <div class="row">
+        <div class="col-md-3">
+          <label>First Name</label>
+          <div>{{employee.EmployeeFirstName}}</div>
+        </div>
+        <div class="col-md-3">
+          <label>Last Name</label>
+          <div>{{employee.EmployeeLastName}}</div>
+        </div>
+        <div class="col-md-3">
+          <label>Company</label>
+          <div>{{employee.TLCompany.Company_Name}}</div>
+        </div>
+      
+        <div class="col-md-3">
+          <label>Department</label>
+          <div>{{employee.Department}}</div>
+        </div>
+        <div class="col-md-3">
+          <label>Hire Date</label>
+          <div>{{employee.HireDate|date:'MM/dd/yyyy'}}</div>
+        </div>
+        <div class="col-md-3">
+          <label>Terminated</label>
+          <div>{{employee.TerminationDate?(employee.TerminationDate|date:'MM/dd/yyyy'):'No'}}</div>
+        </div>
+          <div class="col-md-3">
+              <label>Re-Hire Date</label>
+              <div>{{employee.RehireDate?(employee.RehireDate|date:'MM/dd/yyyy'):'No'}}</div>
+          </div>
+          <div class="col-md-3">
+              <label>Employee Status</label>
+              <div>{{employee.EmployeeStatu.EmployeeStatus}}</div>
+          </div>
+         
+           <div class="col-md-3">
+              <label>TL Employee</label>
+              <div>{{employee.TLEmployee}}</div>
+          </div>
+
+          <div class="col-md-6">
+              <label>Required Medical Tests</label>
+              <div>
+                  <span data-ng-repeat="medical in employee.EmployeeMedicalRequireds">{{medical.MedicalTest.MedicalTest1}}<span data-ng-if="!$last">, </span></span></div>
+          </div>
+      </div>
+    </div>
+  </tab>
+    <tab heading="Edit" active="tab[1]" data-ng-click="edit = {}; copy(employee,edit)" >
+        <br />
+        <form name="editEmployee" data-ng-submit="saveEdit(editEmployee, edit)" data-ng-init="" novalidate="novalidate" class="well">
+            <div class="row">
+                <div class="col-md-3 form-group" show-errors>
+                    <label>First Name</label>
+                    <input type="text" data-ng-model="edit.EmployeeFirstName" name="firstName" class="form-control" required />
+                </div>
+                <div class="col-md-3 form-group" show-errors>
+                    <label>Last Name</label>
+                    <input type="text" data-ng-model="edit.EmployeeLastName" name="lastName" class="form-control" required />
+                </div>
+                <div class="col-md-3 form-group">
+                    <label>Company</label>
+                    <input type="hidden" ui-select2="selects.selectCompanyConfig" data-ng-model="edit.DBID" name="employer" required="required" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 form-group">
+                    <label>Department</label>
+                    <input type="text" data-ng-model="edit.Department" name="department" class="form-control" required />
+                    <!--<input type="hidden" ui-select2="selects.selectEmployeeOccupationsConfig" data-ng-model="$parent.edit.Department" name="department" required="required" />-->
+                </div>
+                <div class="col-md-3 form-group" show-errors>
+                    <label>Hire Date</label>
+                    <input type="text" datepicker-popup="MM/dd/yyyy" ng-model="edit.HireDate" name="hireDate" class="form-control"  />
+                </div>
+                <div class="col-md-3 form-group">
+                    <label>Terminated</label>
+                    <input type="text" datepicker-popup="MM/dd/yyyy" ng-model="edit.TerminationDate" name="terminationDate" class="form-control" />
+                </div>
+                <div class="col-md-3 form-group">
+                    <label>Re-Hire Date</label>
+              <input type="text" datepicker-popup="MM/dd/yyyy" ng-model="edit.RehireDate" name="rehireDate" class="form-control" />
+                </div>
+                <div class="col-md-3 form-group" show-errors>
+                    <label>EmployeeStatus</label>
+                    <input type="hidden" ui-select2="selects.selectEmployeeStatusIDConfig" data-ng-model="edit.EmployeeStatusID" name="employeeStatus"  required="required" />
+                </div> 
+                <div class="col-md-3 form-group" show-errors>
+                    <label>TLEmployee</label>
+                    <input type="text" data-ng-model="edit.TLEmployee" name="TlEployee" class="form-control" />
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>Required Medical Tests</label>
+                    <input type="hidden" ui-select2="selects.selectMultiplyMedicalTestConfig" data-ng-model="edit.EmployeeMedicalRequiredsSelect" name="employeeMedicalRequireds" />
+                </div> 
+            </div>
+            
+            <div class="row">
+                <div class="col-md-3 col-md-offset-9 text-right">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <button type="submit" data-ng-click="tab[0] = true; copy(employee,edit)" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </tab>
+  <tab heading="Courses" active="tab[2]"><br/>
+    <div class="well">
+      <div class="text-right"><a class="btn btn-success" data-ui-sref="app.employee.detail.addCert">Add Completed Course</a> <!--<a class="btn btn-primary">Schedule Course</a>--></div>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Course Name </th>
+            <th>Certifying Agency</th>
+            <th>Course Length</th>
+            <th>Completed On</th>
+              
+            <th>Expires On</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="course in filteredCourses = (employee.CoursesTakens | filter:{CertificationStatusID: 1, Deleted: false})" data-ui-sref="app.employee.detail.editCert({cert: course.CoursesTakenID})" data-ng-init="getCourse(course)" data-ng-class="{danger: course.Expired}">
+                <td>{{course.CourseDescription}}</td>
+                <td>{{course.CertAgency}}</td>
+                <td>{{course.CourseLength}} {{course.CourseLengthUnit}}</td>
+                <td>{{course.CertificationDate | date: 'MM/dd/yyyy'}}</td>
+
+                <td title="{{expires(course,true) | date: 'MM/dd/yyyy'}}">{{expires(course) | date: 'MM/dd/yyyy'}}</td>
+            </tr>
+            <tr data-ng-if="filteredCourses.length == 0">
+                <td colspan="5" style="text-align:center">No courses on record</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </tab>
+  <tab heading="Medical" active="tab[3]"><br/>
+    <div class="well">
+      <div class="text-right"><a class="btn btn-success" data-ui-sref="app.employee.detail.addMedical">Add Medical</a> <!--<a class="btn btn-primary">Schedule Course</a>--></div>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Date</th>
+            <th>Expires On</th>
+            <th>Notes</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="employeeMedical in filteredMedicals = (employee.EmployeeMedicals | filter:{Deleted: false}) " data-ui-sref="app.employee.detail.editMedical({med: employeeMedical.EmployeeMedicalID})" data-ng-init="getMedical(employeeMedical)" data-ng-class="{danger: employeeMedical.Expired}">
+                <td>{{employeeMedical.MedicalTestType}}</td>
+                <td>{{employeeMedical.MedicalTestDate | date: 'MM/dd/yyyy'}}</td>
+                <td title="Expires On">{{employeeMedical.MedicalExpireDate | date: 'MM/dd/yyyy'}}</td>
+                <td>{{employeeMedical.MedicalNote}}</td>
+              </tr>
+            <tr data-ng-if="filteredMedicals.length == 0">
+                <td colspan="5" style="text-align:center">No medical tests on record</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </tab>
+    <tab heading="Notes" active="tab[4]"><br />
+        <div class="pull-right">
+            <a class="btn btn-success" data-ui-sref="app.employee.detail.addNote({id: employee.EmployeeID})">Add Note</a>
+        </div>
+        <br /><br />
+        <table id="EmployeeNotes" class="table table-striped table-hover">
+            <tr data-ng-repeat="note in employee.EmployeeNotes1 | orderBy: '-ModifiedOn'">
+                <td>{{note.Employee_Note}}</td>
+                <td><a data-ui-sref="app.employee.detail.editNote({id: note.EmployeeID, note: note.EmployeeNoteID})">Edit</a></td>
+            </tr>
+        </table>
+    </tab>
+  <!--<tab heading="Terminate" active="tab[3]" data-ng-if="!employee.TerminationDate"><br/>
+    <div class="well">
+      <p>Are you sure you want to terminate {{employee.EmployeeFirstName}} {{employee.EmployeeLastName}}?</p>
+      <button class="btn btn-danger" data-ng-click="terminate(employee)">Yes, terminate.</button> 
+      <button data-ng-click="tab[0] = true" class="btn btn-default">No</button>
+    </div>
+  </tab>
+  <tab heading="Reinstate" active="tab[3]" data-ng-if="employee.TerminationDate"><br/>
+    <div class="well">
+      <p>Are you sure you want to reinstate {{employee.EmployeeFirstName}} {{employee.EmployeeLastName}}?</p>
+      <button class="btn btn-success" data-ng-click="reinstate(employee)">Yes, reinstate.</button> 
+      <button data-ng-click="tab[0] = true" class="btn btn-default">No</button>
+    </div>
+  </tab>-->
+</tabset>

@@ -1,0 +1,27 @@
+
+<div class="page-header">
+  <h1>Region <small> - {{region.Region1}}</small></h1>
+</div>
+<tabset id="tabs" data-ng-init="tab = []">
+    <tab heading="Edit" active="tab[0]">
+        <br />
+        <form name="regionEditForm" data-ng-submit="saveEdit(edit, regionEditForm)" data-ng-init="" novalidate="novalidate" class="well">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label>Region</label>
+                    <input type="text" data-ng-model="edit.Region1" name="region" class="form-control" required />
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>Region Course Director</label>
+                    <input type="hidden" ui-select2="selects.selectInstructorConfig" data-ng-model="edit.Director" name="instructor" />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-3 col-md-offset-9 text-right">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <button type="submit" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </tab>
+</tabset>

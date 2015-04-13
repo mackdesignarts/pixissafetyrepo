@@ -1,0 +1,65 @@
+
+<form name="addCourse" data-ng-submit="add(course, addCourse)" data-ng-init="course = {}" novalidate="novalidate">
+  <div class="well">
+      <div class="row">
+          <div class="col-md-3 form-group">
+              <label>Agency</label>
+              <input type="hidden" ui-select2="selects.selectAgencyConfig" data-ng-model="course.CertificationAgencyID" required="required" name="agency" />
+          </div>
+          <div class="col-md-3 form-group">
+              <label>Length</label>
+              <input type="number" data-ng-model="course.CourseLength" required="required" class="form-control" name="length" data-ng-min="0" />
+          </div>
+          <div class="col-md-3 form-group">
+              <label>Length Unit</label>
+              <select ui-select2="" data-ng-model="course.CourseLengthUnit" required="required" name="lengthUnits">
+                  <option value="">Select Unit</option>
+                  <option value="Hour">Hour(s)</option>
+                  <option value="Day">Day(s)</option>
+                  <option value="Week">Week(s)</option>
+                  <option value="Month">Month(s)</option>
+                  <option value="Year">Year(s)</option>
+                </select>
+          </div>
+          <div class="col-md-3 form-group">
+              <label>Renewal Period</label>
+              <input type="number" data-ng-model="course.RenewalPeriodMonths" required="required" class="form-control" placeholder="Months" name="renewalPeriod" data-ng-min="0" />
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12 form-group">
+              <label>Course Description</label>
+              <input type="text" data-ng-model="course.CourseDescription" required="required" class="form-control" name="courseDescription" />
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12 form-group">
+              <label>Certificate Description</label>
+              <input type="text" data-ng-model="course.CertificateDescription" required="required" class="form-control" name="certDescription" />
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12 form-group">
+              <label>Certificate Sub-Description</label>
+              <input type="text" data-ng-model="course.CertificateSubDescription" required="required" class="form-control" name="certSubDescription" />
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="checkbox">
+                  <label>
+                      <input type="checkbox" data-ng-model="course.PocketCards" data-ng-true-value="true" data-ng-false-value="false" name="pocketCards" />
+                      Has pocket card
+                  </label>
+              </div>
+          </div>
+      </div>
+    </div>
+  <div class="clearfix">
+    <div class="col-md-6 col-md-offset-6">
+      <p class="text-right">
+        <input type="submit" value="Add" class="btn btn-success"/> <a data-ng-click="cancel()" class="btn btn-default">Cancel</a> 
+      </p>
+    </div>
+  </div>
+</form>

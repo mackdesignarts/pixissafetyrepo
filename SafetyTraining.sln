@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafetyTraining.Web", "SafetyTraining.Web\SafetyTraining.Web.csproj", "{D3130F8F-1445-4CE1-9356-AC3EB30D6EDA}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "SafetyTraining.Client", "SafetyTraining.Client\SafetyTraining.Client.njsproj", "{E43136D1-A47B-4E03-B1A8-7D314D6FFB20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafetyTraining.Data", "SafetyTraining.Data\SafetyTraining.Data.csproj", "{70843929-5829-4F93-8490-E3F9302D950F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3130F8F-1445-4CE1-9356-AC3EB30D6EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3130F8F-1445-4CE1-9356-AC3EB30D6EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3130F8F-1445-4CE1-9356-AC3EB30D6EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3130F8F-1445-4CE1-9356-AC3EB30D6EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E43136D1-A47B-4E03-B1A8-7D314D6FFB20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E43136D1-A47B-4E03-B1A8-7D314D6FFB20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E43136D1-A47B-4E03-B1A8-7D314D6FFB20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E43136D1-A47B-4E03-B1A8-7D314D6FFB20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70843929-5829-4F93-8490-E3F9302D950F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70843929-5829-4F93-8490-E3F9302D950F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70843929-5829-4F93-8490-E3F9302D950F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70843929-5829-4F93-8490-E3F9302D950F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
